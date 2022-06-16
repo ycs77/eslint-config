@@ -33,7 +33,6 @@ module.exports = {
   plugins: [
     'html',
     'unicorn',
-    'antfu',
   ],
   settings: {
     'import/resolver': {
@@ -185,7 +184,7 @@ module.exports = {
 
     // Common
     'semi': ['error', 'never'],
-    'curly': ['error', 'multi-or-nest', 'consistent'],
+    'curly': 'off',
     'quotes': ['error', 'single'],
     'quote-props': ['error', 'consistent-as-needed'],
     'no-unused-vars': 'warn',
@@ -251,7 +250,7 @@ module.exports = {
     'prefer-spread': 'error',
     'prefer-template': 'error',
     'template-curly-spacing': 'error',
-    'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
+    'arrow-parens': ['error', 'as-needed'],
     'generator-star-spacing': 'off',
     'spaced-comment': ['error', 'always', {
       line: {
@@ -328,10 +327,5 @@ module.exports = {
     // yml
     'yml/quotes': ['error', { prefer: 'single', avoidEscape: false }],
     'yml/no-empty-document': 'off',
-
-    // antfu
-    'antfu/if-newline': 'error',
-    'antfu/import-dedupe': 'error',
-    // 'antfu/prefer-inline-type-import': 'error',
   },
 }

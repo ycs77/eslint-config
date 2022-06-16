@@ -1,8 +1,8 @@
-const basic = require('@antfu/eslint-config-basic')
+const basic = require('@ycs77/eslint-config-basic')
 
 module.exports = {
   extends: [
-    '@antfu/eslint-config-basic',
+    '@ycs77/eslint-config-basic',
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
   ],
@@ -68,9 +68,9 @@ module.exports = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
     'brace-style': 'off',
-    '@typescript-eslint/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+    '@typescript-eslint/brace-style': ['error', '1tbs', { allowSingleLine: true }],
     'comma-dangle': 'off',
-    '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
+    '@typescript-eslint/comma-dangle': ['error', 'only-multiline'],
     'object-curly-spacing': 'off',
     '@typescript-eslint/object-curly-spacing': ['error', 'always'],
     'semi': 'off',

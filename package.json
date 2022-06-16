@@ -1,20 +1,18 @@
 {
-  "name": "@antfu/eslint-config-monorepo",
-  "version": "0.25.1",
+  "name": "@ycs77/eslint-config-monorepo",
+  "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@7.1.0",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com> (https://github.com/antfu/)",
+  "author": "Lucas Yang <yangchenshin77@gmail.com>",
   "license": "MIT",
   "scripts": {
     "lint": "eslint .",
-    "prepare": "pnpm -r run stub",
     "release": "bumpp package.json packages/*/package.json --commit --push --tag && pnpm -r publish --access public"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "*",
+    "@ycs77/eslint-config": "*",
     "bumpp": "^7.1.1",
     "eslint": "^8.16.0",
-    "eslint-plugin-antfu": "workspace:*",
     "typescript": "^4.7.2"
   }
 }

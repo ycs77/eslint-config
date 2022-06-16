@@ -1,6 +1,8 @@
-# @antfu/eslint-config
+# @ycs77/eslint-config
 
-[![npm](https://img.shields.io/npm/v/@antfu/eslint-config?color=a1b858&label=)](https://npmjs.com/package/@antfu/eslint-config)
+> Fork from [@antfu/eslint-config](https://github.com/antfu/eslint-config)
+
+[![npm](https://img.shields.io/npm/v/@ycs77/eslint-config?style=flat-square)](https://npmjs.com/package/@ycs77/eslint-config)
 
 - Single quotes, no semi
 - Auto fix for formatting (aimed to be used standalone without Prettier)
@@ -14,14 +16,14 @@
 ### Install
 
 ```bash
-pnpm add -D eslint @antfu/eslint-config
+pnpm add -D eslint @ycs77/eslint-config
 ```
 
 ### Config `.eslintrc`
 
 ```json
 {
-  "extends": "@antfu"
+  "extends": "@ycs77"
 }
 ```
 
@@ -53,13 +55,41 @@ Create `.vscode/settings.json`
 }
 ```
 
-## Check Also
+## Testing @ycs77/eslint-config against external packages
 
-- [antfu/dotfiles](https://github.com/antfu/dotfiles) - My dotfiles
-- [antfu/vscode-settings](https://github.com/antfu/vscode-settings) - My VS Code settings
-- [antfu/eslint-config](https://github.com/antfu/eslint-config) - My ESLint config
-- [antfu/ts-starter](https://github.com/antfu/ts-starter) - My starter template for TypeScript library
-- [antfu/vitesse](https://github.com/antfu/vitesse) - My starter template for Vue & Vite app
+You may wish to test your locally-modified copy of @ycs77/eslint-config against another package that is built with @ycs77/eslint-config. For pnpm, after building @ycs77/eslint-config, you can use [`pnpm.overrides`](https://pnpm.io/package_json#pnpmoverrides). Please note that `pnpm.overrides` must be specified in the root `package.json` and you must first list the package as a dependency in the root `package.json`:
+
+```json
+{
+  "devDependencies": {
+    "@ycs77/eslint-config": "*"
+  },
+  "pnpm": {
+    "overrides": {
+      "@ycs77/eslint-config": "link:../eslint-config/packages/all"
+    }
+  }
+}
+```
+
+And install the `@rushstack/eslint-patch` into project to fix the eslint with monorepo bug:
+
+```
+pnpm add @rushstack/eslint-patch -D
+```
+
+Create `.eslintrc.js` file:
+
+```js
+require('@rushstack/eslint-patch/modern-module-resolution')
+
+module.exports = {
+  extends: '@ycs77',
+  parserOptions: { tsconfigRootDir: __dirname },
+}
+```
+
+And re-run `pnpm install` to link the package.
 
 ## License
 
