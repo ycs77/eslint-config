@@ -1,3 +1,5 @@
+const INLINE_ELEMENTS = require('eslint-plugin-vue/lib/utils/inline-non-void-elements')
+
 module.exports = {
   overrides: [
     {
@@ -61,7 +63,9 @@ module.exports = {
     'vue/dot-location': ['error', 'property'],
     'vue/dot-notation': ['error', { allowKeywords: true }],
     'vue/eqeqeq': ['error', 'smart'],
-    // 'vue/func-call-spacing': ['off', 'never'],
+    'vue/html-self-closing': ['error', {
+      svg: 'any',
+    }],
     'vue/key-spacing': ['error', { beforeColon: false, afterColon: true }],
     'vue/keyword-spacing': ['error', { before: true, after: true }],
     'vue/no-constant-condition': 'warn',
@@ -90,6 +94,9 @@ module.exports = {
     'vue/operator-linebreak': ['error', 'before'],
     'vue/prefer-template': 'error',
     'vue/quote-props': ['error', 'consistent-as-needed'],
+    'vue/singleline-html-element-content-newline': ['error', {
+      ignores: ['pre', 'textarea', 'template', ...INLINE_ELEMENTS],
+    }],
     'vue/space-in-parens': ['error', 'never'],
     'vue/space-infix-ops': 'error',
     'vue/space-unary-ops': ['error', { words: true, nonwords: false }],
