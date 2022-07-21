@@ -91,7 +91,7 @@ module.exports = {
         avoidQuotes: true,
       },
     ],
-    'vue/operator-linebreak': ['error', 'before'],
+    'vue/operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
     'vue/prefer-template': 'error',
     'vue/quote-props': ['error', 'consistent-as-needed'],
     'vue/singleline-html-element-content-newline': ['error', {
