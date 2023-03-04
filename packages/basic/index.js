@@ -327,6 +327,8 @@ module.exports = {
 
     // yml
     'yml/quotes': ['error', { prefer: 'single', avoidEscape: false }],
+    'yml/plain-scalar': 'off',
     'yml/no-empty-document': 'off',
+    'yml/no-empty-mapping-value': 'off',
   },
 }
