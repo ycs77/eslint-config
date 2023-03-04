@@ -271,6 +271,7 @@ module.exports = {
     'consistent-return': 'off',
     'complexity': ['off', 11],
     'eqeqeq': ['error', 'smart'],
+    'multiline-ternary': 'off',
     'no-alert': 'warn',
     'no-case-declarations': 'error',
     'no-multi-spaces': 'error',
