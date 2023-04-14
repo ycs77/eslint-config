@@ -1,6 +1,6 @@
 {
   "name": "@ycs77/eslint-config",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Anthony's ESLint config",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
   "license": "MIT",
