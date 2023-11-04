@@ -2,11 +2,13 @@
 
 > Extended from [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
-[![npm](https://img.shields.io/npm/v/@ycs77/eslint-config?style=flat-square)](https://npmjs.com/package/@ycs77/eslint-config)
+[![NPM version][ico-version]][link-npm]
+[![Software License][ico-license]](LICENSE)
+[![Total Downloads][ico-downloads]][link-downloads]
 
 - Single quotes, no semi
 - Auto fix for formatting (aimed to be used standalone without Prettier)
-- TypeScript, Vue, React out-of-box
+- TypeScript, Vue out-of-box
 - Lint also for json, yaml, markdown
 - Sorted imports, dangling commas for cleaner commit diff
 - Reasonable defaults, best practices, only one-line of config
@@ -177,3 +179,10 @@ More advanced you can see original [@antfu/eslint-config's customization](https:
 ## License
 
 Under the [MIT LICENSE](LICENSE.md)
+
+[ico-version]: https://img.shields.io/npm/v/@ycs77/eslint-config?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square
+[ico-downloads]: https://img.shields.io/npm/dt/@ycs77/eslint-config?style=flat-square
+
+[link-npm]: https://www.npmjs.com/package/@ycs77/eslint-config
+[link-downloads]: https://www.npmjs.com/package/@ycs77/eslint-config
