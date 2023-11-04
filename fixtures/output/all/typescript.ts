@@ -29,7 +29,7 @@ function identity< T >(arg: T): T {
 
 // Use the generic function with type inference
 const result = identity(
-  'TypeScript is awesome',
+  'TypeScript is awesome'
 )
 log(result)
 
