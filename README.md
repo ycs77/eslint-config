@@ -1,6 +1,6 @@
 # @ycs77/eslint-config
 
-> Fork from [@antfu/eslint-config](https://github.com/antfu/eslint-config)
+> Extended from [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
 [![npm](https://img.shields.io/npm/v/@ycs77/eslint-config?style=flat-square)](https://npmjs.com/package/@ycs77/eslint-config)
 
@@ -16,18 +16,30 @@
 ### Install
 
 ```bash
-pnpm add -D eslint @ycs77/eslint-config
+yarn add eslint @ycs77/eslint-config -D
 ```
 
-### Config `.eslintrc`
+### Create config file
 
-```json
-{
-  "extends": "@ycs77"
-}
+With [`"type": "module"`](https://nodejs.org/api/packages.html#type) in `package.json` (recommended):
+
+```js
+// eslint.config.js
+import ycs77 from '@ycs77/eslint-config'
+
+export default ycs77()
 ```
 
-> You don't need `.eslintignore` normally as it has been provided by the preset.
+With CJS:
+
+```js
+// eslint.config.js
+const ycs77 = require('@ycs77/eslint-config').default
+
+module.exports = ycs77()
+```
+
+> Note that `.eslintignore` no longer works in Flat config, see [customization](#customization) for more details.
 
 ### Add script for package.json
 
@@ -42,55 +54,126 @@ For example:
 }
 ```
 
-### Config VS Code auto fix
+## VS Code support (auto fix)
 
-Create `.vscode/settings.json`
+Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 
-```json
+Add the following settings to your `.vscode/settings.json`:
+
+```jsonc
 {
+  // Enable the ESlint flat config support
+  "eslint.experimental.useFlatConfig": true,
+
+  // Disable the default formatter, use eslint instead
   "prettier.enable": false,
+  "editor.formatOnSave": false,
+
+  // Auto fix
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
-}
-```
-
-## Testing @ycs77/eslint-config against external packages
-
-You may wish to test your locally-modified copy of @ycs77/eslint-config against another package that is built with @ycs77/eslint-config. For pnpm, after building @ycs77/eslint-config, you can use [`pnpm.overrides`](https://pnpm.io/package_json#pnpmoverrides). Please note that `pnpm.overrides` must be specified in the root `package.json` and you must first list the package as a dependency in the root `package.json`:
-
-```json
-{
-  "devDependencies": {
-    "@ycs77/eslint-config": "*"
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
   },
-  "pnpm": {
-    "overrides": {
-      "@ycs77/eslint-config": "link:../eslint-config/packages/all"
-    }
-  }
+
+  // Silent the stylistic rules in you IDE, but still auto fix them
+  "eslint.rules.customizations": [
+    { "rule": "style/*", "severity": "off" },
+    { "rule": "*-indent", "severity": "off" },
+    { "rule": "*-spacing", "severity": "off" },
+    { "rule": "*-spaces", "severity": "off" },
+    { "rule": "*-order", "severity": "off" },
+    { "rule": "*-dangle", "severity": "off" },
+    { "rule": "*-newline", "severity": "off" },
+    { "rule": "*quotes", "severity": "off" },
+    { "rule": "*semi", "severity": "off" }
+  ],
+
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml"
+  ]
 }
 ```
 
-And install the `@rushstack/eslint-patch` into project to fix the eslint with monorepo bug:
+## Customization
 
-```
-pnpm add @rushstack/eslint-patch -D
-```
+Since v1.0, we migrated to [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new). It provides much better organization and composition.
 
-Create `.eslintrc.js` file:
+Normally you only need to import the `ycs77` preset:
 
 ```js
-require('@rushstack/eslint-patch/modern-module-resolution')
+// eslint.config.js
+import ycs77 from '@ycs77/eslint-config'
 
-module.exports = {
-  extends: '@ycs77',
-  parserOptions: { tsconfigRootDir: __dirname },
-}
+export default ycs77()
 ```
 
-And re-run `pnpm install` to link the package.
+And that's it! Or you can configure each integration individually, for example:
+
+```js
+// eslint.config.js
+import ycs77 from '@ycs77/eslint-config'
+
+export default ycs77({
+  // Enable stylistic formatting rules
+  // stylistic: true,
+
+  // Or customize the stylistic rules
+  stylistic: {
+    indent: 2, // 4, or 'tab'
+    quotes: 'single', // or 'double'
+  },
+
+  // TypeScript and Vue are auto-detected, you can also explicitly enable them:
+  typescript: true,
+  vue: true,
+
+  // Disable jsonc and yaml support
+  jsonc: false,
+  yaml: false,
+
+  // `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+  ignores: [
+    './fixtures',
+    // ...globs
+  ],
+})
+```
+
+The `ycs77` factory function also accepts any number of arbitrary custom config overrides:
+
+```js
+// eslint.config.js
+import ycs77 from '@ycs77/eslint-config'
+
+export default ycs77(
+  {
+    // Configures for ycs77's config
+  },
+
+  // From the second arguments they are ESLint Flat Configs
+  // you can have multiple configs
+  {
+    files: ['**/*.ts'],
+    rules: {},
+  },
+  {
+    rules: {},
+  },
+)
+```
+
+More advanced you can see original [@antfu/eslint-config's customization](https://github.com/antfu/eslint-config#customization) for more details.
 
 ## License
 
-MIT
+Under the [MIT LICENSE](LICENSE.md)
