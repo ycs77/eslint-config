@@ -60,3 +60,15 @@ log(`${number} is ${isEven(number) ? 'even' : 'odd'}.`);
 setTimeout(() => {
   log('This code runs after a delay of 2 seconds.');
 }, 2000);
+
+// Use a long function params
+function watch(refs, callback) {
+  log(refs, callback)
+}
+const aaaa = {}
+const bbbb = {}
+watch(
+  [aaaa, bbbb], ([_oaaaa, _obbbb], [_naaaa, _nbbbb]) => {
+    log(_oaaaa, _obbbb, _naaaa, _nbbbb)
+  }
+)

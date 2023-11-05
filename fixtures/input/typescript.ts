@@ -29,7 +29,8 @@ function identity< T  >(arg: T): T {
 
 // Use the generic function with type inference
 const result = identity(
-  'TypeScript is awesome');
+  'TypeScript is awesome'
+  );
 log(result);
 
 // Use optional properties in an interface
@@ -50,6 +51,29 @@ const favoriteFruit: Fruit = 'apple';
 // Use a type assertion to tell TypeScript about the type
 const inputValue: any = '42';
 const numericValue = inputValue as number;
+
+// Define a enum
+enum Week {
+Monday,
+ Tuesday,
+ Wednesday,
+    Thursday,
+    Friday,
+  Saturday,
+  Sunday
+}
+
+log(Week.Monday, Week.Sunday)
+
+// Define a enum with values
+enum Direction {
+Up=1,
+Down,
+Left,
+Right
+}
+
+log(Direction.Up, Direction.Down)
 
 // Define a class with access modifiers
 class Animal {
@@ -80,26 +104,3 @@ var fn = (): string => {
 }
 
 log(car1, car2, favoriteFruit, numericValue, fn())
-
-// Define a TypeScript enum
-enum Week {
-Monday,
- Tuesday,
- Wednesday,
-    Thursday,
-    Friday,
-  Saturday,
-  Sunday
-}
-
-log(Week.Monday, Week.Sunday)
-
-// Define a TypeScript enum with values
-enum Direction {
-Up=1,
-Down,
-Left,
-Right
-}
-
-log(Direction.Up, Direction.Down)

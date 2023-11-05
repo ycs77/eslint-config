@@ -1,10 +1,15 @@
 import type { ConfigItem } from '@antfu/eslint-config'
+import { pluginAntfu } from '../plugins'
 
 export function stylistic(): ConfigItem[] {
   return [
     {
       name: 'ycs77:stylistic',
+      plugins: {
+        antfu: pluginAntfu,
+      },
       rules: {
+        'antfu/consistent-list-newline': ['error', { CallExpression: false }],
         'antfu/if-newline': 'off',
 
         'curly': 'off',
@@ -23,7 +28,12 @@ export function stylistic(): ConfigItem[] {
           singleline: { delimiter: 'comma', requireLast: false },
         }],
         'style/multiline-ternary': ['off'],
-        'style/operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
+        'style/operator-linebreak': ['error', 'after', {
+          overrides: {
+            '?': 'before',
+            ':': 'before',
+          },
+        }],
       },
     },
   ]
