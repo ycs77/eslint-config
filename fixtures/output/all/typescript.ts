@@ -85,3 +85,26 @@ function fn(): string {
 }
 
 log(car1, car2, favoriteFruit, numericValue, fn())
+
+// Define a TypeScript enum
+enum Week {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+log(Week.Monday, Week.Sunday)
+
+// Define a TypeScript enum with values
+enum Direction {
+  Up = 1,
+  Down,
+  Left,
+  Right,
+}
+
+log(Direction.Up, Direction.Down)
