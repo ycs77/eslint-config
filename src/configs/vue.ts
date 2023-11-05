@@ -1,9 +1,10 @@
-import { type ConfigItem, GLOB_VUE, type OptionsStylistic } from '@antfu/eslint-config'
+import { type ConfigItem, GLOB_VUE, type OptionsHasTypeScript, type OptionsStylistic } from '@antfu/eslint-config'
 import INLINE_ELEMENTS from 'eslint-plugin-vue/lib/utils/inline-non-void-elements.json'
 
-export function vue(options: OptionsStylistic = {}): ConfigItem[] {
+export function vue(options: OptionsHasTypeScript & OptionsStylistic = {}): ConfigItem[] {
   const {
     stylistic = true,
+    typescript = false,
   } = options
 
   return [
@@ -37,6 +38,12 @@ export function vue(options: OptionsStylistic = {}): ConfigItem[] {
               'vue/singleline-html-element-content-newline': ['error', {
                 ignores: ['pre', 'textarea', 'template', ...INLINE_ELEMENTS],
               }],
+            }
+          : {},
+
+        ...typescript
+          ? {
+              'ts/consistent-type-imports': 'off',
             }
           : {},
       },

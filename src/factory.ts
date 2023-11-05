@@ -31,6 +31,7 @@ export function ycs77(options: OptionsConfig & ConfigItem = {}, ...userConfigs: 
 
     configs.push(vue({
       stylistic: enableStylistic,
+      typescript: !!enableTypeScript,
     }))
   }
 
