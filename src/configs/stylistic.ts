@@ -9,7 +9,10 @@ export function stylistic(): ConfigItem[] {
         antfu: pluginAntfu,
       },
       rules: {
-        'antfu/consistent-list-newline': ['error', { CallExpression: false }],
+        'antfu/consistent-list-newline': ['error', {
+          ArrowFunctionExpression: false,
+          CallExpression: false,
+        }],
         'antfu/if-newline': 'off',
 
         'curly': 'off',
