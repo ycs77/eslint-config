@@ -1,6 +1,6 @@
 import { isPackageExists } from 'local-pkg'
 import { type ConfigItem, type OptionsConfig, antfu } from '@antfu/eslint-config'
-import { stylistic, typescript, vue } from './configs'
+import { node, stylistic, typescript, vue } from './configs'
 
 const VuePackages = [
   'vue',
@@ -21,6 +21,8 @@ export function ycs77(options: OptionsConfig & ConfigItem = {}, ...userConfigs: 
   } = options
 
   const configs: ConfigItem[][] = []
+
+  configs.push(node())
 
   if (enableStylistic) {
     configs.push(stylistic())
