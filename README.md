@@ -7,11 +7,15 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 - Single quotes, no semi
-- Auto fix for formatting (aimed to be used standalone without Prettier)
-- TypeScript, Vue out-of-box
-- Lint also for json, yaml, markdown
-- Sorted imports, dangling commas for cleaner commit diff
+- Auto fix for formatting (aimed to be used standalone **without** Prettier)
+- Designed to work with TypeScript, JSX, Vue out-of-box
+- Lints also for json, yaml, markdown
+- Sorted imports, dangling commas
 - Reasonable defaults, best practices, only one-line of config
+- Respects `.gitignore` by default
+- [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
+- Using [ESLint Stylistic](https://github.com/eslint-stylistic/eslint-stylistic)
+- **Style principle**: Minimal for reading, stable for diff, consistent
 
 ## Usage
 
@@ -178,7 +182,7 @@ More advanced you can see original [@antfu/eslint-config's customization](https:
 
 ## License
 
-Under the [MIT LICENSE](LICENSE.md)
+Under the [MIT LICENSE](LICENSE)
 
 [ico-version]: https://img.shields.io/npm/v/@ycs77/eslint-config?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square
