@@ -179,7 +179,7 @@ export default ycs77(
 )
 ```
 
-More advanced you can see original [@antfu/eslint-config's customization](https://github.com/antfu/eslint-config#customization) for more details.
+More advanced you can see the [@antfu/eslint-config's customization](https://github.com/antfu/eslint-config#customization) for more details.
 
 ## License
 
