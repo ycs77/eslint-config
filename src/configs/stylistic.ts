@@ -1,13 +1,9 @@
 import type { ConfigItem } from '@antfu/eslint-config'
-import { pluginAntfu } from '../plugins'
 
 export function stylistic(): ConfigItem[] {
   return [
     {
       name: 'ycs77:stylistic',
-      plugins: {
-        antfu: pluginAntfu,
-      },
       rules: {
         'antfu/consistent-list-newline': ['error', {
           ArrowFunctionExpression: false,

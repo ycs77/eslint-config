@@ -1167,10 +1167,10 @@ eslint-module-utils@^2.8.0:
   dependencies:
     debug "^3.2.7"
 
-eslint-plugin-antfu@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-antfu/-/eslint-plugin-antfu-1.0.2.tgz#6b5fd75378a500ae36be1be9006a17c87635e725"
-  integrity sha512-elv/LVq+4h9oi7xza9EK93akujmTAGnL3e7aMVVWELjvIJuHcKj0GT6HjdgPDtuBdMnyyKN7fVKIpSNSqZnaIA==
+eslint-plugin-antfu@^1.0.2, eslint-plugin-antfu@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-antfu/-/eslint-plugin-antfu-1.0.3.tgz#90a404c0dbad074b999b71f3d59ff7e70ca48322"
+  integrity sha512-KwC4qcSGGxAsyUrks4UtqEhUI31xTMf6cyr5Jh63XMlOqPBHNKLTqnW8Fr7Pn+mSt7gEmcKygPtPZbOlxq9W4g==
 
 eslint-plugin-es-x@^7.1.0:
   version "7.3.0"
