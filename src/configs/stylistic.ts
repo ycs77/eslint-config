@@ -10,6 +10,7 @@ export function stylistic(): ConfigItem[] {
           CallExpression: false,
         }],
         'antfu/if-newline': 'off',
+        'antfu/indent-binary-ops': 'off',
 
         'curly': 'off',
 
