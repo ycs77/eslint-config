@@ -7,7 +7,7 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
-"@antfu/eslint-config@^1.2.0":
+"@antfu/eslint-config@1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@antfu/eslint-config/-/eslint-config-1.2.0.tgz#41d43b0a8ec8ec65fab5370d0fc973efa7fd00c7"
   integrity sha512-5O3kRjF+pGu3YZhj06IDPrAholDNru9oLH/nc8qldwnKTdCrDJ2/UrlGdWy8CLGu68bJYEKVKPf/ewGmYEQzkw==
