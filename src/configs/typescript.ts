@@ -1,19 +1,22 @@
-import { type FlatConfigItem, GLOB_SRC, type OptionsComponentExts, type OptionsStylistic } from '@antfu/eslint-config'
+import type { FlatConfigItem, OptionsComponentExts, OptionsFiles, OptionsStylistic } from '@antfu/eslint-config'
+import { GLOB_SRC } from '@antfu/eslint-config'
 
 export async function typescript(
-  options: OptionsComponentExts & OptionsStylistic = {}
+  options: OptionsComponentExts & OptionsStylistic & OptionsFiles = {}
 ): Promise<FlatConfigItem[]> {
   const {
     componentExts = [],
     stylistic = true,
   } = options
 
+  const files = options.files ?? [
+    GLOB_SRC,
+    ...componentExts.map(ext => `**/*.${ext}`),
+  ]
+
   return [
     {
-      files: [
-        GLOB_SRC,
-        ...componentExts.map(ext => `**/*.${ext}`),
-      ],
+      files,
       name: 'ycs77:typescript',
       rules: {
         ...stylistic

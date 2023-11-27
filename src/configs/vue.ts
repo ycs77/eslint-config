@@ -1,17 +1,19 @@
-import { type FlatConfigItem, GLOB_VUE, type OptionsHasTypeScript, type OptionsStylistic } from '@antfu/eslint-config'
+import type { FlatConfigItem, OptionsFiles, OptionsHasTypeScript, OptionsStylistic } from '@antfu/eslint-config'
+import { GLOB_VUE } from '@antfu/eslint-config'
 import INLINE_ELEMENTS from 'eslint-plugin-vue/lib/utils/inline-non-void-elements.json'
 
 export async function vue(
-  options: OptionsHasTypeScript & OptionsStylistic = {}
+  options: OptionsHasTypeScript & OptionsStylistic & OptionsFiles = {}
 ): Promise<FlatConfigItem[]> {
   const {
     stylistic = true,
     typescript = false,
+    files = [GLOB_VUE],
   } = options
 
   return [
     {
-      files: [GLOB_VUE],
+      files,
       name: 'ycs77:vue',
       rules: {
         'vue/block-order': ['error', {
