@@ -1,6 +1,8 @@
-import { type ConfigItem, GLOB_SRC, type OptionsComponentExts, type OptionsStylistic } from '@antfu/eslint-config'
+import { type FlatConfigItem, GLOB_SRC, type OptionsComponentExts, type OptionsStylistic } from '@antfu/eslint-config'
 
-export function typescript(options: OptionsComponentExts & OptionsStylistic = {}): ConfigItem[] {
+export async function typescript(
+  options: OptionsComponentExts & OptionsStylistic = {}
+): Promise<FlatConfigItem[]> {
   const {
     componentExts = [],
     stylistic = true,

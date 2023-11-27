@@ -1,6 +1,6 @@
-import type { ConfigItem } from '@antfu/eslint-config'
+import type { FlatConfigItem } from '@antfu/eslint-config'
 
-export function node(): ConfigItem[] {
+export async function node(): Promise<FlatConfigItem[]> {
   return [
     {
       name: 'ycs77:node',

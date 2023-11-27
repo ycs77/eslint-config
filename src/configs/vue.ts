@@ -1,7 +1,9 @@
-import { type ConfigItem, GLOB_VUE, type OptionsHasTypeScript, type OptionsStylistic } from '@antfu/eslint-config'
+import { type FlatConfigItem, GLOB_VUE, type OptionsHasTypeScript, type OptionsStylistic } from '@antfu/eslint-config'
 import INLINE_ELEMENTS from 'eslint-plugin-vue/lib/utils/inline-non-void-elements.json'
 
-export function vue(options: OptionsHasTypeScript & OptionsStylistic = {}): ConfigItem[] {
+export async function vue(
+  options: OptionsHasTypeScript & OptionsStylistic = {}
+): Promise<FlatConfigItem[]> {
   const {
     stylistic = true,
     typescript = false,

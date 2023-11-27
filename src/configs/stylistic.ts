@@ -1,6 +1,6 @@
-import type { ConfigItem } from '@antfu/eslint-config'
+import type { FlatConfigItem } from '@antfu/eslint-config'
 
-export function stylistic(): ConfigItem[] {
+export async function stylistic(): Promise<FlatConfigItem[]> {
   return [
     {
       name: 'ycs77:stylistic',
