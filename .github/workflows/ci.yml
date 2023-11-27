@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 20
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
@@ -33,7 +33,7 @@ jobs:
       - name: Checkout
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 20
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
@@ -48,7 +48,7 @@ jobs:
       - name: Checkout
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 20
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
