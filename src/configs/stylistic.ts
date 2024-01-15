@@ -10,7 +10,6 @@ export async function stylistic(): Promise<FlatConfigItem[]> {
           CallExpression: false,
         }],
         'antfu/if-newline': 'off',
-        'antfu/indent-binary-ops': 'off',
 
         'curly': 'off',
 
@@ -23,6 +22,7 @@ export async function stylistic(): Promise<FlatConfigItem[]> {
           exports: 'always-multiline',
           functions: 'only-multiline',
         }],
+        'style/indent-binary-ops': 'off',
         'style/member-delimiter-style': ['error', {
           multiline: { delimiter: 'none' },
           singleline: { delimiter: 'comma', requireLast: false },
