@@ -1,7 +1,7 @@
 import { isPackageExists } from 'local-pkg'
 import { antfu } from '@antfu/eslint-config'
-import type { Awaitable, FlatConfigItem, OptionsConfig } from '@antfu/eslint-config'
-import { node, stylistic, typescript, vue } from './configs'
+import type { Awaitable, FlatConfigItem, OptionsConfig, UserConfigItem } from '@antfu/eslint-config'
+import { imports, node, stylistic, typescript, vue } from './configs'
 
 const VuePackages = [
   'vue',
@@ -15,8 +15,8 @@ const VuePackages = [
  */
 export function ycs77(
   options: OptionsConfig & FlatConfigItem = {},
-  ...userConfigs: Awaitable<FlatConfigItem | FlatConfigItem[]>[]
-) {
+  ...userConfigs: Awaitable<UserConfigItem | UserConfigItem[]>[]
+): Promise<UserConfigItem[]> {
   const {
     componentExts = [],
     stylistic: enableStylistic = true,
@@ -26,7 +26,10 @@ export function ycs77(
 
   const configs: Awaitable<FlatConfigItem[]>[] = []
 
-  configs.push(node())
+  configs.push(
+    imports(),
+    node(),
+  )
 
   if (enableStylistic) {
     configs.push(stylistic())
