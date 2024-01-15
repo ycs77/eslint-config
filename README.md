@@ -217,7 +217,7 @@ More advanced you can see the [@antfu/eslint-config's customization](https://git
 
 ## Credit
 
-* [@antfu/eslint-config](https://github.com/antfu/eslint-config)
+- [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
 ## License
 
@@ -227,7 +227,6 @@ Under the [MIT LICENSE](LICENSE)
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square
 [ico-github-action]: https://img.shields.io/github/actions/workflow/status/ycs77/eslint-config/ci.yml?branch=main&label=tests&style=flat-square
 [ico-downloads]: https://img.shields.io/npm/dt/@ycs77/eslint-config?style=flat-square
-
 [link-npm]: https://www.npmjs.com/package/@ycs77/eslint-config
 [link-github-action]: https://github.com/ycs77/eslint-config/actions/workflows/ci.yml?query=branch%3Amain
 [link-downloads]: https://www.npmjs.com/package/@ycs77/eslint-config
