@@ -9,14 +9,11 @@
 </template>
 
 <script setup lang="ts">
-/* eslint-disable ts/ban-ts-comment */
-// @ts-nocheck
-
 // Define reactive data and props
 import { ref } from 'vue'
 
 const greeting = ref('Hello, Vue 3!')
-const counter = ref<number | string>(0)
+const counter = ref<number | 1>(0)
 
 // Define a function
 function incrementCounter() {
