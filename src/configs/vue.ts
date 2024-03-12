@@ -1,6 +1,6 @@
 import type { FlatConfigItem, OptionsFiles, OptionsHasTypeScript, OptionsStylistic } from '@antfu/eslint-config'
-import { GLOB_VUE } from '@antfu/eslint-config'
 import INLINE_ELEMENTS from 'eslint-plugin-vue/lib/utils/inline-non-void-elements.json'
+import { GLOB_VUE } from '../globs'
 
 export async function vue(
   options: OptionsHasTypeScript & OptionsStylistic & OptionsFiles = {}
@@ -28,6 +28,7 @@ export async function vue(
           svg: 'any',
           math: 'any',
         }],
+        'vue/no-template-shadow': 'off',
 
         ...stylistic
           ? {

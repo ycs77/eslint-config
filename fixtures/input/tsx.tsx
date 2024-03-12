@@ -1,4 +1,3 @@
-/* eslint-disable ts/ban-ts-comment */
 // @ts-nocheck
 
 export function Component1() {

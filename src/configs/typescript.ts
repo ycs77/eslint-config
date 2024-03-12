@@ -1,5 +1,5 @@
 import type { FlatConfigItem, OptionsComponentExts, OptionsFiles, OptionsStylistic } from '@antfu/eslint-config'
-import { GLOB_SRC } from '@antfu/eslint-config'
+import { GLOB_SRC } from '../globs'
 
 export async function typescript(
   options: OptionsComponentExts & OptionsStylistic & OptionsFiles = {}
@@ -19,6 +19,8 @@ export async function typescript(
       files,
       name: 'ycs77:typescript',
       rules: {
+        'ts/ban-ts-comment': 'off',
+
         ...stylistic
           ? {
               'style/comma-dangle': 'off',
