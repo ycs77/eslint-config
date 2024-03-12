@@ -21,3 +21,5 @@ export {
   GLOB_VUE,
   GLOB_YAML,
 } from '@antfu/eslint-config'
+
+export const GLOB_YAML_IN_MARKDOWN = '**/*.md/**/*.y?(a)ml'

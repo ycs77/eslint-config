@@ -1,7 +1,7 @@
 import { isPackageExists } from 'local-pkg'
 import { antfu } from '@antfu/eslint-config'
 import type { Awaitable, FlatConfigItem, OptionsConfig, UserConfigItem } from '@antfu/eslint-config'
-import { imports, node, stylistic, typescript, vue } from './configs'
+import { imports, markdown, node, stylistic, typescript, vue } from './configs'
 
 const VuePackages = [
   'vue',
@@ -47,6 +47,12 @@ export function ycs77(
   if (enableTypeScript) {
     configs.push(typescript({
       componentExts,
+      stylistic: enableStylistic,
+    }))
+  }
+
+  if (options.markdown ?? true) {
+    configs.push(markdown({
       stylistic: enableStylistic,
     }))
   }
