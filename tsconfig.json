@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ESNext",
     "baseUrl": ".",
-    "module": "ES2020",
+    "module": "ESNext",
     "moduleResolution": "Bundler",
     "strict": true,
     "esModuleInterop": true,
@@ -12,6 +12,7 @@
     "**/*.ts"
   ],
   "exclude": [
-    "./fixtures/**/*.*"
+    "./fixtures/**/*.*",
+    "./_fixtures/**/*.*"
   ]
 }

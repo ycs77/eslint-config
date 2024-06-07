@@ -1,9 +1,9 @@
-import type { FlatConfigItem, OptionsComponentExts, OptionsFiles, OptionsStylistic } from '@antfu/eslint-config'
+import type { OptionsComponentExts, OptionsFiles, OptionsStylistic, TypedFlatConfigItem } from '@antfu/eslint-config'
 import { GLOB_SRC } from '../globs'
 
 export async function typescript(
   options: OptionsComponentExts & OptionsStylistic & OptionsFiles = {}
-): Promise<FlatConfigItem[]> {
+): Promise<TypedFlatConfigItem[]> {
   const {
     componentExts = [],
     stylistic = true,
@@ -17,7 +17,7 @@ export async function typescript(
   return [
     {
       files,
-      name: 'ycs77:typescript',
+      name: 'ycs77/typescript/rules',
       rules: {
         'ts/ban-ts-comment': 'off',
 

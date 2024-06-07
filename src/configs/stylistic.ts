@@ -1,9 +1,9 @@
-import type { FlatConfigItem } from '@antfu/eslint-config'
+import type { TypedFlatConfigItem } from '@antfu/eslint-config'
 
-export async function stylistic(): Promise<FlatConfigItem[]> {
+export async function stylistic(): Promise<TypedFlatConfigItem[]> {
   return [
     {
-      name: 'ycs77:stylistic',
+      name: 'ycs77/stylistic/rules',
       rules: {
         'antfu/consistent-list-newline': ['error', {
           ArrowFunctionExpression: false,

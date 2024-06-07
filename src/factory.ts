@@ -1,7 +1,11 @@
 import { isPackageExists } from 'local-pkg'
+import type { Linter } from 'eslint'
+import type { FlatConfigComposer } from 'eslint-flat-config-utils'
 import { antfu } from '@antfu/eslint-config'
-import type { Awaitable, FlatConfigItem, OptionsConfig, UserConfigItem } from '@antfu/eslint-config'
-import { imports, markdown, node, stylistic, typescript, vue } from './configs'
+import type { ConfigNames as AntfuConfigNames, Awaitable, OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config'
+import { markdown, stylistic, typescript, vue } from './configs'
+import { imports, node } from './overrides'
+import type { ConfigNames } from './typegen'
 
 const VuePackages = [
   'vue',
@@ -10,52 +14,46 @@ const VuePackages = [
   '@slidev/cli',
 ]
 
-/**
- * Construct an array of ESLint flat config items.
- */
 export function ycs77(
-  options: OptionsConfig & FlatConfigItem = {},
-  ...userConfigs: Awaitable<UserConfigItem | UserConfigItem[]>[]
-): Promise<UserConfigItem[]> {
+  options: OptionsConfig & TypedFlatConfigItem = {},
+  ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.FlatConfig[]>[]
+): FlatConfigComposer<TypedFlatConfigItem, AntfuConfigNames | ConfigNames> {
   const {
-    componentExts = [],
     stylistic: enableStylistic = true,
     typescript: enableTypeScript = isPackageExists('typescript'),
     vue: enableVue = VuePackages.some(i => isPackageExists(i)),
   } = options
 
-  const configs: Awaitable<FlatConfigItem[]>[] = []
+  let composer = antfu(options)
 
-  configs.push(
-    imports(),
-    node(),
-  )
+  composer = composer
+    .override('antfu/imports/rules', imports())
+    .override('antfu/node/rules', node())
 
   if (enableStylistic) {
-    configs.push(stylistic())
+    composer = composer.append(stylistic())
   }
 
   if (enableVue) {
-    componentExts.push('vue')
-
-    configs.push(vue({
-      stylistic: enableStylistic,
+    composer = composer.append(vue({
+      stylistic: !!enableStylistic,
       typescript: !!enableTypeScript,
     }))
   }
 
   if (enableTypeScript) {
-    configs.push(typescript({
-      componentExts,
+    composer = composer.append(typescript({
       stylistic: enableStylistic,
     }))
   }
 
   if (options.markdown ?? true) {
-    configs.push(markdown({
+    composer = composer.append(markdown({
       stylistic: enableStylistic,
     }))
   }
 
-  return antfu(options, ...configs, ...userConfigs)
+  composer = composer.append(...userConfigs as any)
+
+  return composer
 }

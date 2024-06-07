@@ -3,7 +3,7 @@ import { afterAll, beforeAll, it } from 'vitest'
 import fs from 'fs-extra'
 import { execa } from 'execa'
 import fg from 'fast-glob'
-import type { FlatConfigItem, OptionsConfig } from '@antfu/eslint-config'
+import type { OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config'
 
 beforeAll(async () => {
   await fs.rm('_fixtures', { recursive: true, force: true })
@@ -17,7 +17,7 @@ runWithConfig('all', {
   vue: true,
 })
 
-function runWithConfig(name: string, configs: OptionsConfig, ...items: FlatConfigItem[]) {
+function runWithConfig(name: string, configs: OptionsConfig, ...items: TypedFlatConfigItem[]) {
   it.concurrent(name, async ({ expect }) => {
     const from = resolve('fixtures/input')
     const output = resolve('fixtures/output', name)
@@ -50,10 +50,14 @@ export default ycs77(
     })
 
     await Promise.all(files.map(async file => {
-      let content = await fs.readFile(join(target, file), 'utf-8')
+      const content = await fs.readFile(join(target, file), 'utf-8')
       const source = await fs.readFile(join(from, file), 'utf-8')
-      if (content === source)
-        content = '// unchanged\n'
+      const outputPath = join(output, file)
+      if (content === source) {
+        if (fs.existsSync(outputPath))
+          fs.remove(outputPath)
+        return
+      }
       await expect.soft(content).toMatchFileSnapshot(join(output, file))
     }))
   }, 30_000)
