@@ -7,19 +7,17 @@
 [![GitHub Tests Action Status][ico-github-action]][link-github-action]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-- Single quotes, no semi
 - Auto fix for formatting (aimed to be used standalone **without** Prettier)
-- Sorted imports, dangling commas
 - Reasonable defaults, best practices, only one line of config
-- Designed to work with TypeScript, JSX, Vue out-of-box
-- Lints also for json, yaml, toml, markdown
+- Designed to work with TypeScript, JSX, Vue, JSON, YAML, Toml, Markdown, etc. Out-of-box.
 - Opinionated, but [very customizable](#customization)
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
-- Using [ESLint Stylistic](https://github.com/eslint-stylistic/eslint-stylistic)
-- Respects `.gitignore` by default
-- Optional [React](#react), [Svelte](#svelte), [UnoCSS](#unocss) support
-- Optional [formatters](#formatters) support for CSS, HTML, etc.
 - **Style principle**: Minimal for reading, stable for diff, consistent
+  - Sorted imports, dangling commas
+  - Single quotes, no semi
+  - Using [ESLint Stylistic](https://github.com/eslint-stylistic/eslint-stylistic)
+- Respects `.gitignore` by default
+- Supports ESLint v9 or v8.50.0+
 
 ## Usage
 
@@ -31,54 +29,14 @@ yarn add eslint @ycs77/eslint-config -D
 
 ### Create config file
 
-With [`"type": "module"`](https://nodejs.org/api/packages.html#type) in `package.json` (recommended):
+Create `eslint.config.mjs` in your project root:
 
 ```js
-// eslint.config.js
+// eslint.config.mjs
 import ycs77 from '@ycs77/eslint-config'
 
 export default ycs77()
 ```
-
-With CJS:
-
-```js
-// eslint.config.js
-const ycs77 = require('@ycs77/eslint-config').default
-
-module.exports = ycs77()
-```
-
-> [!TIP]
-> ESLint only detects `eslint.config.js` as the flat config entry, meaning you need to put `type: module` in your `package.json` or you have to use CJS in `eslint.config.js`. If you want explicit extension like `.mjs` or `.cjs`, or even `eslint.config.ts`, you can install [`eslint-ts-patch`](https://github.com/antfu/eslint-ts-patch) to fix it.
-
-Combined with legacy config:
-
-```js
-// eslint.config.js
-const ycs77 = require('@ycs77/eslint-config').default
-const { FlatCompat } = require('@eslint/eslintrc')
-
-const compat = new FlatCompat()
-
-module.exports = ycs77(
-  {
-    ignores: [],
-  },
-
-  // Legacy config
-  ...compat.config({
-    extends: [
-      'eslint:recommended',
-      // Other extends...
-    ],
-  })
-
-  // Other flat configs...
-)
-```
-
-> Note that `.eslintignore` no longer works in Flat config, see [customization](#customization) for more details.
 
 ### Add script for package.json
 
@@ -102,6 +60,7 @@ Add the following settings to your `.vscode/settings.json`:
 ```jsonc
 {
   // Enable the ESlint flat config support
+  // (remove this if your ESLint extension above v3.0.5)
   "eslint.experimental.useFlatConfig": true,
 
   // Disable the default formatter, use eslint instead
