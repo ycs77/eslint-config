@@ -378,10 +378,10 @@
     debug "^4.3.1"
     minimatch "^3.0.5"
 
-"@eslint/config-inspector@latest":
-  version "0.4.10"
-  resolved "https://registry.yarnpkg.com/@eslint/config-inspector/-/config-inspector-0.4.10.tgz#f3c4f86f3990f3022abb837cc4a96c0d36580b6d"
-  integrity sha512-qDstzmL4SDh7X0W4LZhZG4NfX1vesBySnB/S2IfsCVGTlZbprRL7G+ULpE0PYDNY8nVX3TYM7f9wlfsfrh8+ZQ==
+"@eslint/config-inspector@^0.4.11":
+  version "0.4.11"
+  resolved "https://registry.yarnpkg.com/@eslint/config-inspector/-/config-inspector-0.4.11.tgz#d683879fa64030c47b2f397a78a006328f107832"
+  integrity sha512-roBuFAlbjqm3AG88fLexp7Okt7c2AItTvkwNBwWgVIb5954W0umsqPiZvRTgmF7AFKWcI/PqiNnlQAoK0JAWkw==
   dependencies:
     bundle-require "^4.1.0"
     cac "^6.7.14"

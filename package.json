@@ -25,7 +25,7 @@
     "stub": "tsup --format esm",
     "dev": "run-p dev:*",
     "dev:watch": "tsup --format esm,cjs --watch",
-    "dev:inspector": "eslint-config-inspector",
+    "dev:inspector": "eslint-config-inspector --no-open",
     "build:inspector": "eslint-config-inspector build",
     "lint": "eslint .",
     "typegen": "tsx scripts/typegen.ts",
@@ -43,7 +43,7 @@
     "local-pkg": "^0.5.0"
   },
   "devDependencies": {
-    "@eslint/config-inspector": "latest",
+    "@eslint/config-inspector": "^0.4.11",
     "@types/eslint": "^8.56.10",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.0.0",
