@@ -19,6 +19,7 @@ export function ycs77(
   ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.FlatConfig[]>[]
 ): FlatConfigComposer<TypedFlatConfigItem, AntfuConfigNames | ConfigNames> {
   const {
+    componentExts = [],
     stylistic: enableStylistic = true,
     typescript: enableTypeScript = isPackageExists('typescript'),
     vue: enableVue = VuePackages.some(i => isPackageExists(i)),
@@ -35,6 +36,8 @@ export function ycs77(
   }
 
   if (enableVue) {
+    componentExts.push('vue')
+
     composer = composer.append(vue({
       stylistic: !!enableStylistic,
       typescript: !!enableTypeScript,
@@ -43,6 +46,7 @@ export function ycs77(
 
   if (enableTypeScript) {
     composer = composer.append(typescript({
+      componentExts,
       stylistic: enableStylistic,
     }))
   }
