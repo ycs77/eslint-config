@@ -47,7 +47,6 @@ export function ycs77(
   if (enableTypeScript) {
     composer = composer.append(typescript({
       componentExts,
-      stylistic: enableStylistic,
     }))
   }
 

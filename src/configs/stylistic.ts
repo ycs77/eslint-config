@@ -21,6 +21,9 @@ export async function stylistic(): Promise<TypedFlatConfigItem[]> {
           imports: 'always-multiline',
           exports: 'always-multiline',
           functions: 'only-multiline',
+          enums: 'always-multiline',
+          generics: 'only-multiline',
+          tuples: 'only-multiline',
         }],
         'style/indent-binary-ops': 'off',
         'style/member-delimiter-style': ['error', {
