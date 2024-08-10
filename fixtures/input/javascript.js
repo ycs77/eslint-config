@@ -51,6 +51,15 @@ try {
   console.error('Error parsing JSON:', error.message);
 }
 
+// Use a try-catch block for error handling
+try {
+  // Attempt to check if this iframe has the same origin as the parent iframe
+  const isSameOrigin = window.location.origin === window.parent.location.origin;
+  log(isSameOrigin);
+} catch (error) {
+  // No used error variable
+}
+
 // Use a ternary conditional operator
 const isEven = num => num % 2 === 0;
 const number = 7;

@@ -3,7 +3,7 @@ import type { Linter } from 'eslint'
 import type { FlatConfigComposer } from 'eslint-flat-config-utils'
 import { antfu } from '@antfu/eslint-config'
 import type { ConfigNames as AntfuConfigNames, Awaitable, OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config'
-import { imports, markdown, node, stylistic, typescript, vue } from './configs'
+import { imports, javascript, markdown, node, stylistic, typescript, vue } from './configs'
 import type { ConfigNames } from './typegen'
 
 const VuePackages = [
@@ -27,6 +27,7 @@ export function ycs77(
   let composer = antfu(options)
 
   composer = composer
+    .append(javascript())
     .append(node())
     .append(imports())
 
