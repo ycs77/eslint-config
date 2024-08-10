@@ -38,28 +38,28 @@
     "eslint": ">=8.40.0"
   },
   "dependencies": {
-    "@antfu/eslint-config": "~2.22.0",
-    "eslint-plugin-antfu": "^2.3.3",
+    "@antfu/eslint-config": "~2.25.0",
+    "eslint-plugin-antfu": "^2.3.4",
     "local-pkg": "^0.5.0"
   },
   "devDependencies": {
-    "@eslint/config-inspector": "^0.4.11",
-    "@types/eslint": "^8.56.10",
+    "@eslint/config-inspector": "^0.5.2",
+    "@types/eslint": "^9.0.0",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.0.0",
     "@vue/compiler-sfc": "^3.4.0",
-    "bumpp": "^9.4.0",
+    "bumpp": "^9.4.2",
     "eslint": "^9.0.0",
-    "eslint-flat-config-utils": "^0.2.5",
-    "eslint-plugin-format": "^0.1.1",
-    "eslint-plugin-vue": "^9.26.0",
-    "execa": "^9.1.0",
+    "eslint-flat-config-utils": "^0.3.0",
+    "eslint-plugin-format": "^0.1.2",
+    "eslint-plugin-vue": "^9.27.0",
+    "execa": "^9.3.0",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "npm-run-all2": "^6.2.0",
-    "tsup": "^8.1.0",
-    "tsx": "^4.11.2",
-    "typescript": "^5.4.0",
-    "vitest": "^1.6.0"
+    "tsup": "^8.2.0",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.5"
   }
 }
