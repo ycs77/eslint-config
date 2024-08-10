@@ -3,8 +3,7 @@ import type { Linter } from 'eslint'
 import type { FlatConfigComposer } from 'eslint-flat-config-utils'
 import { antfu } from '@antfu/eslint-config'
 import type { ConfigNames as AntfuConfigNames, Awaitable, OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config'
-import { markdown, stylistic, typescript, vue } from './configs'
-import { imports, node } from './overrides'
+import { imports, markdown, node, stylistic, typescript, vue } from './configs'
 import type { ConfigNames } from './typegen'
 
 const VuePackages = [
@@ -16,7 +15,7 @@ const VuePackages = [
 
 export function ycs77(
   options: OptionsConfig & TypedFlatConfigItem = {},
-  ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.FlatConfig[]>[]
+  ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
 ): FlatConfigComposer<TypedFlatConfigItem, AntfuConfigNames | ConfigNames> {
   const {
     componentExts = [],
@@ -28,8 +27,8 @@ export function ycs77(
   let composer = antfu(options)
 
   composer = composer
-    .override('antfu/imports/rules', imports())
-    .override('antfu/node/rules', node())
+    .append(node())
+    .append(imports())
 
   if (enableStylistic) {
     composer = composer.append(stylistic())
