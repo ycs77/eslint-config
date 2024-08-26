@@ -41,8 +41,11 @@ export async function stylistic(): Promise<TypedFlatConfigItem[]> {
       },
     },
     {
-      name: 'ycs77/stylistic/eslint/rules',
-      files: ['**/eslint.config.?([cm])[jt]s'],
+      name: 'ycs77/stylistic/config/rules',
+      files: [
+        '**/postcss.config.?([cm])[jt]s',
+        '**/eslint.config.?([cm])[jt]s',
+      ],
       rules: {
         'style/quote-props': ['error', 'consistent-as-needed'],
       },
