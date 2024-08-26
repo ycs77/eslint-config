@@ -1,5 +1,5 @@
 // @ts-check
-import ycs77 from './dist/index.js'
+import ycs77, { GLOB_TS } from './dist/index.js'
 
 export default ycs77({
   typescript: true,
@@ -10,3 +10,9 @@ export default ycs77({
     '_fixtures',
   ],
 })
+  .append({
+    files: [GLOB_TS],
+    rules: {
+      'style/quote-props': ['error', 'consistent-as-needed'],
+    },
+  })

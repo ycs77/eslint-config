@@ -40,5 +40,12 @@ export async function stylistic(): Promise<TypedFlatConfigItem[]> {
         'style/quote-props': ['error', 'as-needed'],
       },
     },
+    {
+      name: 'ycs77/stylistic/eslint/rules',
+      files: ['**/eslint.config.?([cm])[jt]s'],
+      rules: {
+        'style/quote-props': ['error', 'consistent-as-needed'],
+      },
+    },
   ]
 }
