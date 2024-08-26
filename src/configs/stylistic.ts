@@ -37,6 +37,7 @@ export async function stylistic(): Promise<TypedFlatConfigItem[]> {
             ':': 'before',
           },
         }],
+        'style/quote-props': ['error', 'as-needed'],
       },
     },
   ]

@@ -29,20 +29,31 @@ export async function vue(
           math: 'any',
         }],
         'vue/no-template-shadow': 'off',
+        'vue/singleline-html-element-content-newline': ['error', {
+          ignores: ['pre', 'textarea', 'template', ...INLINE_ELEMENTS],
+        }],
 
         ...stylistic
           ? {
+              'vue/brace-style': ['error', '1tbs', { allowSingleLine: true }],
               'vue/comma-dangle': ['error', {
                 arrays: 'always-multiline',
                 objects: 'always-multiline',
                 imports: 'always-multiline',
                 exports: 'always-multiline',
                 functions: 'only-multiline',
+                enums: 'always-multiline',
+                generics: 'only-multiline',
+                tuples: 'only-multiline',
               }],
-              'vue/operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
-              'vue/singleline-html-element-content-newline': ['error', {
-                ignores: ['pre', 'textarea', 'template', ...INLINE_ELEMENTS],
+              'vue/multiline-ternary': ['off'],
+              'vue/operator-linebreak': ['error', 'after', {
+                overrides: {
+                  '?': 'before',
+                  ':': 'before',
+                },
               }],
+              'vue/quote-props': ['error', 'as-needed'],
             }
           : {},
 
