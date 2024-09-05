@@ -1,7 +1,7 @@
 {
   "name": "@ycs77/eslint-config",
   "type": "module",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Lucas Yang's ESLint config",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
   "license": "MIT",
