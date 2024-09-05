@@ -5,6 +5,7 @@ export async function stylistic(): Promise<TypedFlatConfigItem[]> {
     {
       name: 'ycs77/stylistic/rules',
       rules: {
+        'antfu/consistent-chaining': 'off',
         'antfu/consistent-list-newline': ['error', {
           ArrowFunctionExpression: false,
           CallExpression: false,
