@@ -17,7 +17,7 @@
   - Single quotes, no semi
   - Using [ESLint Stylistic](https://github.com/eslint-stylistic/eslint-stylistic)
 - Respects `.gitignore` by default
-- Supports ESLint v9 or v8.50.0+
+- Requires ESLint v9.5.0+
 
 ## Usage
 

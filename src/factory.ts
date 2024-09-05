@@ -14,7 +14,7 @@ const VuePackages = [
 ]
 
 export function ycs77(
-  options: OptionsConfig & TypedFlatConfigItem = {},
+  options: OptionsConfig & Omit<TypedFlatConfigItem, 'files'> = {},
   ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
 ): FlatConfigComposer<TypedFlatConfigItem, AntfuConfigNames | ConfigNames> {
   const {
