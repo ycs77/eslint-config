@@ -1,5 +1,5 @@
 import type { OptionsComponentExts, OptionsFiles, TypedFlatConfigItem } from '@antfu/eslint-config'
-import { GLOB_SRC } from '../globs'
+import { GLOB_TS, GLOB_TSX } from '../globs'
 
 export async function typescript(
   options: OptionsComponentExts & OptionsFiles = {}
@@ -9,7 +9,8 @@ export async function typescript(
   } = options
 
   const files = options.files ?? [
-    GLOB_SRC,
+    GLOB_TS,
+    GLOB_TSX,
     ...componentExts.map(ext => `**/*.${ext}`),
   ]
 
