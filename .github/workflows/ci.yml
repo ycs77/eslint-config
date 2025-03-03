@@ -18,31 +18,16 @@ jobs:
       - name: Checkout
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
 
       - run: yarn build
 
-      - run: yarn lint
-
-  typecheck:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Checkout
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-
-      - run: yarn typegen
-
       - run: yarn typecheck
+
+      - run: yarn lint
 
   test:
     runs-on: ubuntu-latest
@@ -52,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
