@@ -13,6 +13,7 @@ afterAll(async () => {
 })
 
 runWithConfig('all', {
+  astro: true,
   typescript: true,
   vue: true,
 })

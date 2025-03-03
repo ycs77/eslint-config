@@ -1,4 +1,3 @@
-// @ts-check
 import ycs77, { GLOB_TS } from './dist/index.js'
 
 export default ycs77({

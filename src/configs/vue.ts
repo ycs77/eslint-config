@@ -42,9 +42,6 @@ export async function vue(
                 imports: 'always-multiline',
                 exports: 'always-multiline',
                 functions: 'only-multiline',
-                enums: 'always-multiline',
-                generics: 'only-multiline',
-                tuples: 'only-multiline',
               }],
               'vue/multiline-ternary': ['off'],
               'vue/operator-linebreak': ['error', 'after', {

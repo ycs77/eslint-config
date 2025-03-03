@@ -19,4 +19,17 @@ const counter = ref<number | 1>(0)
 function incrementCounter() {
   counter.value++
 }
+
+// Define a enum
+enum Week {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+log(Week.Monday, Week.Sunday)
 </script>
