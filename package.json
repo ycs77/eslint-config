@@ -21,10 +21,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run typegen && tsup --format esm,cjs --clean --dts",
-    "stub": "tsup --format esm",
+    "build": "npm run typegen && tsup --clean --dts",
+    "stub": "tsup",
     "dev": "run-p dev:*",
-    "dev:watch": "tsup --format esm,cjs --watch",
+    "dev:watch": "tsup --watch",
     "dev:inspector": "eslint-config-inspector --no-open",
     "build:inspector": "eslint-config-inspector build",
     "lint": "eslint .",
@@ -38,27 +38,27 @@
     "eslint": ">=9.5.0"
   },
   "dependencies": {
-    "@antfu/eslint-config": "~3.16.0",
-    "eslint-plugin-antfu": "^2.7.0",
-    "local-pkg": "^1.0.0"
+    "@antfu/eslint-config": "~4.0.1",
+    "eslint-plugin-antfu": "^3.0.0",
+    "local-pkg": "^1.1.0"
   },
   "devDependencies": {
-    "@eslint/config-inspector": "^1.0.0",
+    "@eslint/config-inspector": "^1.0.1",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.0.0",
-    "bumpp": "^9.10.1",
-    "eslint": "^9.18.0",
-    "eslint-flat-config-utils": "^1.1.0",
+    "bumpp": "^10.0.3",
+    "eslint": "^9.21.0",
+    "eslint-flat-config-utils": "^2.0.1",
     "eslint-plugin-format": "^1.0.1",
     "eslint-plugin-vue": "^9.32.0",
     "execa": "^9.5.2",
     "fast-glob": "^3.3.3",
     "fs-extra": "^11.3.0",
-    "npm-run-all2": "^6.2.6",
+    "npm-run-all2": "^7.0.2",
     "tsup": "^8.4.0",
     "tsx": "^4.19.3",
     "typescript": "~5.7.3",
-    "vitest": "^3.0.3",
+    "vitest": "^3.0.7",
     "vue": "^3.5.13"
   }
 }

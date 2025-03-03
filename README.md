@@ -12,6 +12,8 @@
 - Designed to work with TypeScript, JSX, Vue, JSON, YAML, Toml, Markdown, etc. Out-of-box.
 - Opinionated, but [very customizable](#customization)
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
+- Optional [React](#react), [Svelte](#svelte), [UnoCSS](#unocss), [Astro](#astro), [Solid](#solid) support
+- Optional [formatters](#formatters) support for formatting CSS, HTML, XML, etc.
 - **Style principle**: Minimal for reading, stable for diff, consistent
   - Sorted imports, dangling commas
   - Single quotes, no semi
@@ -29,10 +31,10 @@ yarn add eslint @ycs77/eslint-config -D
 
 ### Create config file
 
-Create `eslint.config.mjs` in your project root:
+Create `eslint.config.js` in your project root:
 
 ```js
-// eslint.config.mjs
+// eslint.config.js
 import ycs77 from '@ycs77/eslint-config'
 
 export default ycs77()
@@ -59,10 +61,6 @@ Add the following settings to your `.vscode/settings.json`:
 
 ```jsonc
 {
-  // Enable the ESlint flat config support
-  // (remove this if your ESLint extension above v3.0.5)
-  "eslint.experimental.useFlatConfig": true,
-
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
   "editor.formatOnSave": false,
