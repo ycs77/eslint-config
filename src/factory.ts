@@ -4,7 +4,17 @@ import type { FlatConfigComposer } from 'eslint-flat-config-utils'
 import type { ConfigNames } from './typegen'
 import { antfu } from '@antfu/eslint-config'
 import { isPackageExists } from 'local-pkg'
-import { imports, javascript, markdown, node, stylistic, test, typescript, vue } from './configs'
+import {
+  astro,
+  imports,
+  javascript,
+  markdown,
+  node,
+  stylistic,
+  test,
+  typescript,
+  vue,
+} from './configs'
 
 const VuePackages = [
   'vue',
@@ -18,6 +28,7 @@ export function ycs77(
   ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
 ): FlatConfigComposer<TypedFlatConfigItem, AntfuConfigNames | ConfigNames> {
   const {
+    astro: enableAstro = false,
     componentExts = [],
     stylistic: enableStylistic = true,
     typescript: enableTypeScript = isPackageExists('typescript'),
@@ -41,17 +52,23 @@ export function ycs77(
 
   if (enableVue) {
     componentExts.push('vue')
-
-    composer = composer.append(vue({
-      stylistic: !!enableStylistic,
-      typescript: !!enableTypeScript,
-    }))
   }
 
   if (enableTypeScript) {
     composer = composer.append(typescript({
       componentExts,
     }))
+  }
+
+  if (enableVue) {
+    composer = composer.append(vue({
+      stylistic: !!enableStylistic,
+      typescript: !!enableTypeScript,
+    }))
+  }
+
+  if (enableAstro) {
+    composer = composer.append(astro())
   }
 
   if (options.markdown ?? true) {

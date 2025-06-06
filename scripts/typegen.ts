@@ -1,8 +1,19 @@
 import fs from 'node:fs/promises'
 import { combine } from '@antfu/eslint-config'
-import { imports, javascript, markdown, node, stylistic, test, typescript, vue } from '../src'
+import {
+  astro,
+  imports,
+  javascript,
+  markdown,
+  node,
+  stylistic,
+  test,
+  typescript,
+  vue,
+} from '../src'
 
 const configs = await combine(
+  astro(),
   imports(),
   javascript(),
   markdown(),
