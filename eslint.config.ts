@@ -1,12 +1,16 @@
 import ycs77, { GLOB_TS } from './dist/index.js'
 
 export default ycs77({
-  vue: true,
+  vue: {
+    a11y: true,
+  },
+  astro: true,
   typescript: true,
   formatters: true,
   ignores: [
     'fixtures',
     '_fixtures',
+    '**/constants-generated.ts',
   ],
 })
   .append({
