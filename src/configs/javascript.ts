@@ -5,17 +5,6 @@ export async function javascript(): Promise<TypedFlatConfigItem[]> {
     {
       name: 'ycs77/javascript/rules',
       rules: {
-        'sort-imports': [
-          'error',
-          {
-            allowSeparatedGroups: false,
-            ignoreCase: false,
-            ignoreDeclarationSort: true,
-            ignoreMemberSort: false,
-            memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-          },
-        ],
-
         'unused-imports/no-unused-vars': [
           'error',
           {
