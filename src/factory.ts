@@ -68,7 +68,9 @@ export function ycs77(
   }
 
   if (enableAstro) {
-    composer = composer.append(astro())
+    composer = composer.append(astro({
+      stylistic: enableStylistic,
+    }))
   }
 
   if (options.markdown ?? true) {

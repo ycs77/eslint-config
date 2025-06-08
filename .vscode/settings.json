@@ -2,6 +2,9 @@
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
   "editor.formatOnSave": false,
+  "[astro]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
 
   // Auto fix
   "editor.codeActionsOnSave": {
@@ -30,6 +33,7 @@
     "typescript",
     "typescriptreact",
     "vue",
+    "astro",
     "html",
     "markdown",
     "json",
