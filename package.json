@@ -27,7 +27,6 @@
   "scripts": {
     "build": "npm run gen && tsdown --dts",
     "stub": "tsdown",
-    "dev": "run-p dev:*",
     "dev:watch": "tsdown --watch",
     "dev:inspector": "eslint-config-inspector --no-open",
     "build:inspector": "eslint-config-inspector build",
@@ -60,7 +59,6 @@
     "execa": "^9.6.0",
     "fast-glob": "^3.3.3",
     "fs-extra": "^11.3.0",
-    "npm-run-all2": "^7.0.2",
     "tsdown": "^0.12.7",
     "tsx": "^4.19.4",
     "typescript": "~5.7.3",
