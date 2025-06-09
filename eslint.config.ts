@@ -7,6 +7,7 @@ export default ycs77({
   astro: true,
   typescript: true,
   formatters: true,
+  type: 'lib',
   ignores: [
     'fixtures',
     '_fixtures',
