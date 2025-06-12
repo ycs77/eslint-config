@@ -49,7 +49,6 @@ export async function astro(
                 VariableDeclarator: 1,
               }],
               'style/semi': 'off',
-              'style/jsx-closing-tag-location': 'error',
               'style/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
             }
           : {},
