@@ -30,6 +30,7 @@ export function ycs77(
   const {
     astro: enableAstro = false,
     componentExts = [],
+    imports: enableImports = true,
     stylistic: enableStylistic = true,
     typescript: enableTypeScript = isPackageExists('typescript'),
     vue: enableVue = VuePackages.some(i => isPackageExists(i)),
@@ -40,7 +41,10 @@ export function ycs77(
   composer = composer
     .append(javascript())
     .append(node())
-    .append(imports())
+
+  if (enableImports) {
+    composer = composer.append(imports())
+  }
 
   if (enableStylistic) {
     composer = composer.append(stylistic())
