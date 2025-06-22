@@ -16,9 +16,8 @@ export async function vue(
       files,
       name: 'ycs77/vue/rules',
       rules: {
-        'vue/block-order': ['error', {
-          order: ['template', 'script', 'style'],
-        }],
+        'vue/v-bind-style': ['warn', 'shorthand', { sameNameShorthand: 'always' }],
+        'vue/block-order': ['error', { order: ['template', 'script', 'style'] }],
         'vue/html-self-closing': ['error', {
           html: {
             void: 'never',
