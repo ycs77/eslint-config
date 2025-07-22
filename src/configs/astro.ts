@@ -11,6 +11,8 @@ export async function astro(
         ...(typeof options.stylistic === 'object' ? options.stylistic : {}),
       }
 
+  const tsESLintParser = await import('@typescript-eslint/parser').then(m => m.default || m)
+
   return [
     {
       name: 'ycs77/astro/rules',
@@ -50,6 +52,46 @@ export async function astro(
               }],
               'style/semi': 'off',
               'style/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
+            }
+          : {},
+      },
+    },
+    {
+      // Define the configuration for `<script>` tag.
+      // Script in `<script>` is assigned a virtual file name with the `.js` extension.
+      name: 'ycs77/astro/js/rules',
+      files: ['**/*.astro/*.js'],
+      languageOptions: {
+        sourceType: 'module',
+      },
+      rules: {
+        'prettier/prettier': 'off',
+
+        ...stylistic
+          ? {
+              'style/indent': 'off',
+            }
+          : {},
+      },
+    },
+    {
+      // Define the configuration for `<script>` tag when using `client-side-ts` processor.
+      // Script in `<script>` is assigned a virtual file name with the `.ts` extension.
+      name: 'ycs77/astro/ts/rules',
+      files: ['**/*.astro/*.ts'],
+      languageOptions: {
+        parser: tsESLintParser ?? undefined,
+        sourceType: 'module',
+        parserOptions: {
+          project: null,
+        },
+      },
+      rules: {
+        'prettier/prettier': 'off',
+
+        ...stylistic
+          ? {
+              'style/indent': 'off',
             }
           : {},
       },
