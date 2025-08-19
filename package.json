@@ -34,6 +34,7 @@
     "gen": "tsx scripts/typegen.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
+    "code-check": "npm run lint && npm run typecheck && npm run test -- --run",
     "prepack": "npm run build",
     "release": "bumpp --commit \"Release v%s\" && npm publish"
   },
