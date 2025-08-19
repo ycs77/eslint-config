@@ -11,9 +11,21 @@ export async function astro(
         ...(typeof options.stylistic === 'object' ? options.stylistic : {}),
       }
 
-  const tsESLintParser = await import('@typescript-eslint/parser').then(m => m.default || m)
+  const [
+    astroExplicitWrapperPlugin,
+    tsESLintParser,
+  ] = await Promise.all([
+    import('eslint-plugin-astro-explicit-wrapper').then(m => m.default || m),
+    import('@typescript-eslint/parser').then(m => m.default || m),
+  ])
 
   return [
+    {
+      name: 'ycs77/astro/setup',
+      plugins: {
+        'astro-explicit-wrapper': astroExplicitWrapperPlugin,
+      },
+    },
     {
       name: 'ycs77/astro/rules',
       files: [GLOB_ASTRO],
@@ -26,6 +38,7 @@ export async function astro(
         ...stylistic
           ? {
               'astro/semi': ['error', 'never'],
+              'astro-explicit-wrapper/explicit-wrapper': 'error',
               // 'style/indent' rule is copied from eslint-stylistic
               'style/indent': ['error', stylistic.indent, {
                 ArrayExpression: 1,

@@ -1644,6 +1644,11 @@ eslint-plugin-antfu@^3.1.1:
   resolved "https://registry.yarnpkg.com/eslint-plugin-antfu/-/eslint-plugin-antfu-3.1.1.tgz#4d085ff6d9241d6d8d84cd6afa92cb8cabba129b"
   integrity sha512-7Q+NhwLfHJFvopI2HBZbSxWXngTwBLKxW1AGXLr2lEGxcEIK/AsDs8pn8fvIizl5aZjBbVbVK5ujmMpBe4Tvdg==
 
+eslint-plugin-astro-explicit-wrapper@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-astro-explicit-wrapper/-/eslint-plugin-astro-explicit-wrapper-1.0.3.tgz#639e53e3a11a5c9b03f41b785e3870cc4b0dce9b"
+  integrity sha512-1Cioeii3e7gCiZrdTwNIA9tlWzEr35IX2D8lVoaPPI6jeCUr8Q+8auIB9RjzY968JRIAL/y7vTknzVTHW+u3fQ==
+
 eslint-plugin-astro@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-astro/-/eslint-plugin-astro-1.3.1.tgz#087e6930c3a0435532327d9ffca1c128a7873d5e"
