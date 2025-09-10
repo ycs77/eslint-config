@@ -42,8 +42,14 @@
     "eslint": ">=9.10.0",
     "eslint-plugin-astro-explicit-wrapper": "^1.0.3"
   },
+  "peerDependenciesMeta": {
+    "eslint-plugin-astro-explicit-wrapper": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@antfu/eslint-config": "~5.2.0",
+    "@typescript-eslint/parser": "^8.39.0",
     "eslint-plugin-antfu": "^3.1.1",
     "local-pkg": "^1.1.1"
   },
