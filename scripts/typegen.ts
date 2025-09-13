@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import { combine } from '@antfu/eslint-config'
+import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import {
   astro,
   imports,
@@ -26,7 +27,11 @@ const configs = await combine(
 
 const configNames = configs.map(i => i.name).filter(Boolean) as string[]
 
-const dts = `
+let dts = await flatConfigsToRulesDTS(configs, {
+  includeAugmentation: false,
+})
+
+dts += `
 // Names of all the configs
 export type ConfigNames = ${configNames.map(i => `'${i}'`).join(' | ')}
 `

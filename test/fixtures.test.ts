@@ -1,9 +1,12 @@
 import type { OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config'
+import fs from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 import { execa } from 'execa'
-import fg from 'fast-glob'
-import fs from 'fs-extra'
+import { glob } from 'tinyglobby'
 import { afterAll, beforeAll, it } from 'vitest'
+
+const isWindows = process.platform === 'win32'
+const timeout = isWindows ? 300_000 : 30_000
 
 beforeAll(async () => {
   await fs.rm('_fixtures', { recursive: true, force: true })
@@ -24,8 +27,11 @@ function runWithConfig(name: string, configs: OptionsConfig, ...items: TypedFlat
     const output = resolve('fixtures/output', name)
     const target = resolve('_fixtures', name)
 
-    await fs.copy(from, target, {
-      filter: src => !src.includes('node_modules'),
+    await fs.cp(from, target, {
+      recursive: true,
+      filter: src => {
+        return !src.includes('node_modules')
+      },
     })
     await fs.writeFile(join(target, 'eslint.config.js'), `
 // @eslint-disable
@@ -42,7 +48,7 @@ export default ycs77(
       stdio: 'pipe',
     })
 
-    const files = await fg('**/*', {
+    const files = await glob('**/*', {
       ignore: [
         'node_modules',
         'eslint.config.js',
@@ -55,11 +61,10 @@ export default ycs77(
       const source = await fs.readFile(join(from, file), 'utf-8')
       const outputPath = join(output, file)
       if (content === source) {
-        if (fs.existsSync(outputPath))
-          fs.remove(outputPath)
+        await fs.rm(outputPath, { force: true })
         return
       }
       await expect.soft(content).toMatchFileSnapshot(join(output, file))
     }))
-  }, 30_000)
+  }, timeout)
 }
