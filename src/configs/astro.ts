@@ -1,9 +1,18 @@
-import type { OptionsStylistic, TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { OptionsFiles, OptionsStylistic, TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { OptionsAstro } from '../types'
 import { GLOB_ASTRO, StylisticConfigDefaults } from '@antfu/eslint-config'
+import { isPackageExists } from 'local-pkg'
+import { GLOB_JS_IN_ASTRO, GLOB_TS_IN_ASTRO } from '../globs'
 
 export async function astro(
-  options: OptionsStylistic = {}
+  options: OptionsAstro & OptionsFiles & OptionsStylistic = {}
 ): Promise<TypedFlatConfigItem[]> {
+  const {
+    files = [GLOB_ASTRO],
+    astroExplicitWrapper: enableAstroExplicitWrapper = isPackageExists('eslint-plugin-astro-explicit-wrapper'),
+    overrides = {},
+  } = options
+
   const stylistic = options.stylistic === false
     ? false
     : {
@@ -15,7 +24,9 @@ export async function astro(
     astroExplicitWrapperPlugin,
     tsESLintParser,
   ] = await Promise.all([
-    import('eslint-plugin-astro-explicit-wrapper').then(m => m.default || m),
+    enableAstroExplicitWrapper
+      ? import('eslint-plugin-astro-explicit-wrapper').then(m => m.default || m)
+      : null,
     import('@typescript-eslint/parser').then(m => m.default || m),
   ])
 
@@ -23,12 +34,14 @@ export async function astro(
     {
       name: 'ycs77/astro/setup',
       plugins: {
-        'astro-explicit-wrapper': astroExplicitWrapperPlugin,
+        ...enableAstroExplicitWrapper
+          ? { 'astro-explicit-wrapper': astroExplicitWrapperPlugin }
+          : {},
       },
     },
     {
       name: 'ycs77/astro/rules',
-      files: [GLOB_ASTRO],
+      files,
       languageOptions: {
         globals: {
           astroHTML: 'readonly',
@@ -38,7 +51,11 @@ export async function astro(
         ...stylistic
           ? {
               'astro/semi': ['error', 'never'],
-              'astro-explicit-wrapper/explicit-wrapper': 'error',
+
+              ...enableAstroExplicitWrapper
+                ? { 'astro-explicit-wrapper/explicit-wrapper': 'error' }
+                : {},
+
               // 'style/indent' rule is copied from eslint-stylistic
               'style/indent': ['error', stylistic.indent, {
                 ArrayExpression: 1,
@@ -67,13 +84,15 @@ export async function astro(
               'style/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
             }
           : {},
+
+        ...overrides,
       },
     },
     {
       // Define the configuration for `<script>` tag.
       // Script in `<script>` is assigned a virtual file name with the `.js` extension.
       name: 'ycs77/astro/js/rules',
-      files: ['**/*.astro/*.js'],
+      files: [GLOB_JS_IN_ASTRO],
       languageOptions: {
         sourceType: 'module',
       },
@@ -91,7 +110,7 @@ export async function astro(
       // Define the configuration for `<script>` tag when using `client-side-ts` processor.
       // Script in `<script>` is assigned a virtual file name with the `.ts` extension.
       name: 'ycs77/astro/ts/rules',
-      files: ['**/*.astro/*.ts'],
+      files: [GLOB_TS_IN_ASTRO],
       languageOptions: {
         parser: tsESLintParser ?? undefined,
         sourceType: 'module',

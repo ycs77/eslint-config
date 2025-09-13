@@ -1,7 +1,8 @@
-import type { ConfigNames as AntfuConfigNames, Awaitable, OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { ConfigNames as AntfuConfigNames, Awaitable, TypedFlatConfigItem } from '@antfu/eslint-config'
 import type { Linter } from 'eslint'
 import type { FlatConfigComposer } from 'eslint-flat-config-utils'
 import type { ConfigNames } from './typegen'
+import type { OptionsConfig } from './types'
 import { antfu } from '@antfu/eslint-config'
 import { isPackageExists } from 'local-pkg'
 import {
@@ -35,6 +36,10 @@ export function ycs77(
     typescript: enableTypeScript = isPackageExists('typescript'),
     vue: enableVue = VuePackages.some(i => isPackageExists(i)),
   } = options
+
+  const astroOptions = typeof options.astro === 'boolean'
+    ? {}
+    : options.astro || {}
 
   let composer = antfu(options)
 
@@ -73,6 +78,7 @@ export function ycs77(
 
   if (enableAstro) {
     composer = composer.append(astro({
+      ...astroOptions,
       stylistic: enableStylistic,
     }))
   }
