@@ -21,6 +21,11 @@
 - Respects `.gitignore` by default
 - Requires ESLint v9.5.0+
 
+## Differences from @antfu/eslint-config
+
+- Opinionated stylistic rules
+- Better Astro rules
+
 ## Usage
 
 ### Install
