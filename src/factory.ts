@@ -1,8 +1,7 @@
 import type { ConfigNames as AntfuConfigNames, Awaitable, TypedFlatConfigItem } from '@antfu/eslint-config'
 import type { Linter } from 'eslint'
 import type { FlatConfigComposer } from 'eslint-flat-config-utils'
-import type { ConfigNames } from './typegen'
-import type { OptionsConfig } from './types'
+import type { ConfigNames, OptionsConfig } from './types'
 import { antfu } from '@antfu/eslint-config'
 import { isPackageExists } from 'local-pkg'
 import {

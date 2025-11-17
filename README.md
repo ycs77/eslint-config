@@ -79,7 +79,7 @@ Add the following settings to your `.vscode/settings.json`:
     "source.organizeImports": "never"
   },
 
-  // Silent the stylistic rules in you IDE, but still auto fix them
+  // Silent the stylistic rules in your IDE, but still auto fix them
   "eslint.rules.customizations": [
     { "rule": "style/*", "severity": "off", "fixable": true },
     { "rule": "format/*", "severity": "off", "fixable": true },
@@ -131,8 +131,23 @@ And that's it! Or you can configure each integration individually, for example:
 import ycs77 from '@ycs77/eslint-config'
 
 export default ycs77({
+  // Type of the project. 'lib' for libraries, the default is 'app'
+  type: 'lib',
+
+  // `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+  // The `ignores` option in the option (first argument) is specifically treated to always be global ignores
+  // And will **extend** the config's default ignores, not override them
+  // You can also pass a function to modify the default ignores
+  ignores: [
+    '**/fixtures',
+    // ...globs
+  ],
+
+  // Parse the `.gitignore` file to get the ignores, on by default
+  gitignore: true,
+
   // Enable stylistic formatting rules
-  // stylistic: true,
+  stylistic: true,
 
   // Or customize the stylistic rules
   stylistic: {
@@ -147,12 +162,6 @@ export default ycs77({
   // Disable jsonc and yaml support
   jsonc: false,
   yaml: false,
-
-  // `.eslintignore` is no longer supported in Flat config, use `ignores` instead
-  ignores: [
-    './fixtures',
-    // ...globs
-  ],
 })
 ```
 

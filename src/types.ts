@@ -1,5 +1,7 @@
 import type { OptionsConfig as AntfuOptionsConfig, OptionsOverrides } from '@antfu/eslint-config'
 
+export type { ConfigNames } from './typegen'
+
 export interface OptionsAstro extends OptionsOverrides {
   astroExplicitWrapper?: boolean
 }

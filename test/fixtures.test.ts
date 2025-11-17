@@ -35,7 +35,7 @@ function runWithConfig(name: string, configs: OptionsConfig, ...items: TypedFlat
     })
     await fs.writeFile(join(target, 'eslint.config.js'), `
 // @eslint-disable
-import ycs77 from '../../dist/index.js'
+import ycs77 from '../../dist/index.mjs'
 
 export default ycs77(
   ${JSON.stringify(configs)},

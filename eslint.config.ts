@@ -1,11 +1,18 @@
-import ycs77, { GLOB_TS } from './dist/index.js'
+import ycs77, { GLOB_TS } from './dist/index.mjs'
 
 export default ycs77({
   vue: {
     a11y: true,
   },
   astro: true,
-  typescript: true,
+  typescript: {
+    erasableOnly: true,
+  },
+  markdown: {
+    overrides: {
+      'no-dupe-keys': 'off',
+    },
+  },
   formatters: true,
   type: 'lib',
   ignores: [
