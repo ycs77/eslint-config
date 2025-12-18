@@ -1,4 +1,5 @@
-import type { OptionsStylistic, TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { OptionsStylistic } from '@antfu/eslint-config'
+import type { TypedFlatConfigItem } from '../types'
 import { GLOB_YAML_IN_MARKDOWN } from '../globs'
 
 export async function markdown(

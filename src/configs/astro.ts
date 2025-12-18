@@ -1,6 +1,6 @@
-import type { OptionsFiles, OptionsStylistic, TypedFlatConfigItem } from '@antfu/eslint-config'
-import type { OptionsAstro } from '../types'
-import { GLOB_ASTRO, StylisticConfigDefaults } from '@antfu/eslint-config'
+import type { OptionsFiles, OptionsStylistic } from '@antfu/eslint-config'
+import type { OptionsAstro, TypedFlatConfigItem } from '../types'
+import { GLOB_ASTRO, interopDefault, StylisticConfigDefaults } from '@antfu/eslint-config'
 import { isPackageExists } from 'local-pkg'
 import { GLOB_JS_IN_ASTRO, GLOB_TS_IN_ASTRO } from '../globs'
 
@@ -25,9 +25,9 @@ export async function astro(
     tsESLintParser,
   ] = await Promise.all([
     enableAstroExplicitWrapper
-      ? import('eslint-plugin-astro-explicit-wrapper').then(m => m.default || m)
+      ? interopDefault(import('eslint-plugin-astro-explicit-wrapper'))
       : null,
-    import('@typescript-eslint/parser').then(m => m.default || m),
+    interopDefault(import('@typescript-eslint/parser')),
   ])
 
   return [

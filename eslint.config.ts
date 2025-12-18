@@ -4,7 +4,9 @@ export default ycs77({
   vue: {
     a11y: true,
   },
-  astro: true,
+  astro: {
+    astroExplicitWrapper: true,
+  },
   typescript: {
     erasableOnly: true,
   },

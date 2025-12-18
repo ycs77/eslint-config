@@ -1,4 +1,4 @@
-import type { TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { TypedFlatConfigItem } from '../types'
 import { GLOB_TESTS } from '@antfu/eslint-config'
 
 export async function test(): Promise<TypedFlatConfigItem[]> {

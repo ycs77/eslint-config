@@ -1,7 +1,7 @@
-import type { ConfigNames as AntfuConfigNames, Awaitable, TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { ConfigNames as AntfuConfigNames, Awaitable } from '@antfu/eslint-config'
 import type { Linter } from 'eslint'
 import type { FlatConfigComposer } from 'eslint-flat-config-utils'
-import type { ConfigNames, OptionsConfig } from './types'
+import type { ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types'
 import { antfu } from '@antfu/eslint-config'
 import { isPackageExists } from 'local-pkg'
 import {
@@ -24,13 +24,14 @@ const VuePackages = [
 ]
 
 export function ycs77(
-  options: OptionsConfig & Omit<TypedFlatConfigItem, 'files'> = {},
+  options: OptionsConfig & Omit<TypedFlatConfigItem, 'files' | 'ignores'> = {},
   ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
 ): FlatConfigComposer<TypedFlatConfigItem, AntfuConfigNames | ConfigNames> {
   const {
     astro: enableAstro = false,
     componentExts = [],
     imports: enableImports = true,
+    node: enableNode = true,
     stylistic: enableStylistic = true,
     typescript: enableTypeScript = isPackageExists('typescript'),
     vue: enableVue = VuePackages.some(i => isPackageExists(i)),
@@ -44,7 +45,10 @@ export function ycs77(
 
   composer = composer
     .append(javascript())
-    .append(node())
+
+  if (enableNode) {
+    composer = composer.append(node())
+  }
 
   if (enableImports) {
     composer = composer.append(imports())
@@ -63,29 +67,37 @@ export function ycs77(
   }
 
   if (enableTypeScript) {
-    composer = composer.append(typescript({
-      componentExts,
-    }))
+    composer = composer.append(
+      typescript({
+        componentExts,
+      })
+    )
   }
 
   if (enableVue) {
-    composer = composer.append(vue({
-      stylistic: !!enableStylistic,
-      typescript: !!enableTypeScript,
-    }))
+    composer = composer.append(
+      vue({
+        stylistic: !!enableStylistic,
+        typescript: !!enableTypeScript,
+      })
+    )
   }
 
   if (enableAstro) {
-    composer = composer.append(astro({
-      ...astroOptions,
-      stylistic: enableStylistic,
-    }))
+    composer = composer.append(
+      astro({
+        ...astroOptions,
+        stylistic: enableStylistic,
+      })
+    )
   }
 
   if (options.markdown ?? true) {
-    composer = composer.append(markdown({
-      stylistic: enableStylistic,
-    }))
+    composer = composer.append(
+      markdown({
+        stylistic: enableStylistic,
+      })
+    )
   }
 
   composer = composer.append(...userConfigs as any)

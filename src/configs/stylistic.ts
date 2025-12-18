@@ -1,4 +1,4 @@
-import type { TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { TypedFlatConfigItem } from '../types'
 
 export async function stylistic(): Promise<TypedFlatConfigItem[]> {
   return [

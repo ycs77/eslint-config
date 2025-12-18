@@ -1,4 +1,5 @@
-import type { OptionsFiles, OptionsHasTypeScript, OptionsStylistic, TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { OptionsFiles, OptionsHasTypeScript, OptionsStylistic } from '@antfu/eslint-config'
+import type { TypedFlatConfigItem } from '../types'
 import INLINE_ELEMENTS from 'eslint-plugin-vue/lib/utils/inline-non-void-elements.json'
 import { GLOB_VUE } from '../globs'
 

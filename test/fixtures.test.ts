@@ -1,4 +1,4 @@
-import type { OptionsConfig, TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { OptionsConfig, TypedFlatConfigItem } from '../src/types'
 import fs from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 import { execa } from 'execa'

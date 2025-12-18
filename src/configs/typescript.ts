@@ -1,4 +1,5 @@
-import type { OptionsComponentExts, OptionsFiles, TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { OptionsComponentExts, OptionsFiles } from '@antfu/eslint-config'
+import type { TypedFlatConfigItem } from '../types'
 import { GLOB_TS, GLOB_TSX } from '../globs'
 
 export async function typescript(
