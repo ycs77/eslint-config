@@ -2,7 +2,7 @@ import type { OptionsFiles, OptionsStylistic } from '@antfu/eslint-config'
 import type { OptionsAstro, TypedFlatConfigItem } from '../types'
 import { GLOB_ASTRO, interopDefault, StylisticConfigDefaults } from '@antfu/eslint-config'
 import { isPackageExists } from 'local-pkg'
-import { GLOB_JS_IN_ASTRO, GLOB_TS_IN_ASTRO } from '../globs'
+import { GLOB_ASTRO_JS, GLOB_ASTRO_TS } from '../globs'
 
 export async function astro(
   options: OptionsAstro & OptionsFiles & OptionsStylistic = {}
@@ -92,7 +92,7 @@ export async function astro(
       // Define the configuration for `<script>` tag.
       // Script in `<script>` is assigned a virtual file name with the `.js` extension.
       name: 'ycs77/astro/js/rules',
-      files: [GLOB_JS_IN_ASTRO],
+      files: [GLOB_ASTRO_JS],
       languageOptions: {
         sourceType: 'module',
       },
@@ -110,7 +110,7 @@ export async function astro(
       // Define the configuration for `<script>` tag when using `client-side-ts` processor.
       // Script in `<script>` is assigned a virtual file name with the `.ts` extension.
       name: 'ycs77/astro/ts/rules',
-      files: [GLOB_TS_IN_ASTRO],
+      files: [GLOB_ASTRO_TS],
       languageOptions: {
         parser: tsESLintParser ?? undefined,
         sourceType: 'module',
