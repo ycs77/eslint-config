@@ -8,6 +8,7 @@ export async function test(): Promise<TypedFlatConfigItem[]> {
       name: 'ycs77/test/rules',
       rules: {
         'test/consistent-test-it': 'off',
+        'test/prefer-lowercase-title': 'off',
       },
     },
   ]
