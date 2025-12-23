@@ -65,6 +65,19 @@ const isEven = num => num % 2 === 0
 const number = 7
 log(`${number} is ${isEven(number) ? 'even' : 'odd'}.`)
 
+// Use a bitwise operator
+const bitwiseA = 5
+const bitwiseB = 3
+const bitwiseC = 12
+const bitwiseAnd = bitwiseA & bitwiseB
+const bitwiseOr = (
+  bitwiseA |
+  bitwiseB |
+  bitwiseC
+)
+log(`Bitwise AND of ${bitwiseA} and ${bitwiseB} is ${bitwiseAnd}.`)
+log(`Bitwise OR of ${bitwiseA} and ${bitwiseB} is ${bitwiseOr}.`)
+
 // Use a callback function with setTimeout for asynchronous code
 setTimeout(() => {
   log('This code runs after a delay of 2 seconds.')

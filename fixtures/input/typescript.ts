@@ -44,7 +44,10 @@ const car2:  Car = {
   make: 'Ford', model: 'Focus' };
 
 // Use union types
-type Fruit = 'apple' | 'banana' | 'orange';
+type Fruit =
+  |'apple'
+  |      'banana'
+  | 'orange';
 const favoriteFruit: Fruit = 'apple';
 
 // Use a type assertion to tell TypeScript about the type

@@ -36,6 +36,8 @@ export async function stylistic(): Promise<TypedFlatConfigItem[]> {
           overrides: {
             '?': 'before',
             ':': 'before',
+            '|': 'ignore',
+            '&': 'ignore',
           },
         }],
         'style/quote-props': ['error', 'as-needed'],
