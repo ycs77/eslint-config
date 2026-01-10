@@ -31,7 +31,7 @@
 ### Install
 
 ```bash
-yarn add eslint @ycs77/eslint-config -D
+npm install eslint @ycs77/eslint-config -D
 ```
 
 ### Create config file

@@ -2,6 +2,7 @@
   "name": "@ycs77/eslint-config",
   "type": "module",
   "version": "6.2.1",
+  "packageManager": "pnpm@10.28.0",
   "description": "Lucas Yang's ESLint config",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
   "license": "MIT",
@@ -20,14 +21,12 @@
     ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "npm run gen && tsdown --dts",
+    "build": "pnpm run gen && tsdown --dts",
     "stub": "tsdown",
     "dev:watch": "tsdown --watch",
     "dev:inspector": "eslint-config-inspector --no-open",
@@ -36,8 +35,8 @@
     "gen": "tsx scripts/typegen.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
-    "code-check": "npm run lint && npm run typecheck && npm run test -- --run",
-    "prepack": "npm run build",
+    "code-check": "pnpm run lint && pnpm run typecheck && pnpm run test --run",
+    "prepack": "pnpm run build",
     "release": "bumpp --commit \"Release v%s\" && npm publish"
   },
   "peerDependencies": {
@@ -50,29 +49,32 @@
     }
   },
   "dependencies": {
-    "@antfu/eslint-config": "~6.7.0",
-    "@typescript-eslint/parser": "^8.50.0",
-    "eslint-plugin-antfu": "^3.1.1",
-    "local-pkg": "^1.1.2"
+    "@antfu/eslint-config": "catalog:prod",
+    "@typescript-eslint/parser": "catalog:prod",
+    "eslint-plugin-antfu": "catalog:prod",
+    "local-pkg": "catalog:prod"
   },
   "devDependencies": {
-    "@eslint/config-inspector": "^1.4.2",
-    "@types/node": "^22.19.1",
-    "bumpp": "^10.3.2",
-    "eslint": "^9.39.2",
-    "eslint-flat-config-utils": "^2.1.4",
-    "eslint-plugin-astro": "^1.5.0",
-    "eslint-plugin-astro-explicit-wrapper": "^1.0.5",
-    "eslint-plugin-format": "^1.1.0",
-    "eslint-plugin-vue": "^10.6.2",
-    "eslint-plugin-vuejs-accessibility": "^2.4.1",
-    "eslint-typegen": "^2.3.0",
-    "execa": "^9.6.1",
-    "tinyglobby": "^0.2.15",
-    "tsdown": "^0.18.1",
-    "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.16",
-    "vue": "^3.5.26"
+    "@eslint/config-inspector": "catalog:dev",
+    "@types/node": "catalog:dev",
+    "bumpp": "catalog:dev",
+    "eslint": "catalog:peer",
+    "eslint-flat-config-utils": "catalog:dev",
+    "eslint-plugin-astro": "catalog:dev",
+    "eslint-plugin-astro-explicit-wrapper": "catalog:peer",
+    "eslint-plugin-format": "catalog:dev",
+    "eslint-plugin-vue": "catalog:dev",
+    "eslint-plugin-vuejs-accessibility": "catalog:dev",
+    "eslint-typegen": "catalog:dev",
+    "execa": "catalog:dev",
+    "tinyglobby": "catalog:dev",
+    "tsdown": "catalog:dev",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev",
+    "vitest": "catalog:dev",
+    "vue": "catalog:dev"
+  },
+  "resolutions": {
+    "chokidar": "catalog:dev"
   }
 }

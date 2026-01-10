@@ -1,4 +1,5 @@
 import type { OptionsFiles, OptionsStylistic } from '@antfu/eslint-config'
+import type { RuleOptions } from '@stylistic/eslint-plugin'
 import type { OptionsAstro, TypedFlatConfigItem } from '../types'
 import { GLOB_ASTRO, interopDefault, StylisticConfigDefaults } from '@antfu/eslint-config'
 import { isPackageExists } from 'local-pkg'
@@ -13,12 +14,10 @@ export async function astro(
     overrides = {},
   } = options
 
-  const stylistic = options.stylistic === false
-    ? false
-    : {
-        ...StylisticConfigDefaults,
-        ...(typeof options.stylistic === 'object' ? options.stylistic : {}),
-      }
+  const stylisticConfig = {
+    ...StylisticConfigDefaults,
+    ...(typeof options.stylistic === 'object' ? options.stylistic : {}),
+  }
 
   const [
     astroExplicitWrapperPlugin,
@@ -29,6 +28,30 @@ export async function astro(
       : null,
     interopDefault(import('@typescript-eslint/parser')),
   ])
+
+  const [
+    indentLevel = 2,
+    indentOptions = {
+      ArrayExpression: 1,
+      CallExpression: { arguments: 1 },
+      flatTernaryExpressions: false,
+      FunctionDeclaration: { body: 1, parameters: 1, returnType: 1 },
+      FunctionExpression: { body: 1, parameters: 1, returnType: 1 },
+      ignoreComments: false,
+      ignoredNodes: [
+        'TSUnionType',
+        'TSIntersectionType',
+      ],
+      ImportDeclaration: 1,
+      MemberExpression: 1,
+      ObjectExpression: 1,
+      offsetTernaryExpressions: true,
+      outerIIFEBody: 1,
+      SwitchCase: 1,
+      tabLength: indentLevel === 'tab' ? 4 : indentLevel,
+      VariableDeclarator: 1,
+    } satisfies RuleOptions['@stylistic/indent'][1],
+  ] = Array.isArray(stylisticConfig.indent) ? stylisticConfig.indent : [stylisticConfig.indent]
 
   return [
     {
@@ -48,7 +71,7 @@ export async function astro(
         },
       },
       rules: {
-        ...stylistic
+        ...options.stylistic
           ? {
               'astro/semi': ['error', 'never'],
 
@@ -57,29 +80,8 @@ export async function astro(
                 : {},
 
               // 'style/indent' rule is copied from eslint-stylistic
-              'style/indent': ['error', stylistic.indent, {
-                ArrayExpression: 1,
-                CallExpression: { arguments: 1 },
-                flatTernaryExpressions: false,
-                FunctionDeclaration: { body: 1, parameters: 1 },
-                FunctionExpression: { body: 1, parameters: 1 },
-                ignoreComments: false,
-                ignoredNodes: [
-                  'TSUnionType',
-                  'TSIntersectionType',
-                  'TSTypeParameterInstantiation',
-                  'FunctionExpression > .params[decorators.length > 0]',
-                  'FunctionExpression > .params > :matches(Decorator, :not(:first-child))',
-                ],
-                ImportDeclaration: 1,
-                MemberExpression: 1,
-                ObjectExpression: 1,
-                offsetTernaryExpressions: true,
-                outerIIFEBody: 1,
-                SwitchCase: 1,
-                tabLength: stylistic.indent === 'tab' ? 4 : stylistic.indent,
-                VariableDeclarator: 1,
-              }],
+              // because it disabled by @antfu/eslint-config for .astro files
+              'style/indent': ['error', indentLevel, indentOptions],
               'style/semi': 'off',
               'style/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
             }
@@ -99,7 +101,7 @@ export async function astro(
       rules: {
         'prettier/prettier': 'off',
 
-        ...stylistic
+        ...options.stylistic
           ? {
               'style/indent': 'off',
             }
@@ -121,7 +123,7 @@ export async function astro(
       rules: {
         'prettier/prettier': 'off',
 
-        ...stylistic
+        ...options.stylistic
           ? {
               'style/indent': 'off',
             }
