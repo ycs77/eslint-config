@@ -37,7 +37,7 @@
     "test": "vitest",
     "code-check": "pnpm run lint && pnpm run typecheck && pnpm run test --run",
     "prepack": "pnpm run build",
-    "release": "bumpp --commit \"Release v%s\" && npm publish"
+    "release": "bumpp --commit \"Release v%s\""
   },
   "peerDependencies": {
     "eslint": ">=9.10.0",
