@@ -26,7 +26,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm run gen && tsdown --dts",
+    "build": "pnpm gen && tsdown --dts",
     "stub": "tsdown",
     "dev:watch": "tsdown --watch",
     "dev:inspector": "eslint-config-inspector --no-open",
@@ -35,8 +35,8 @@
     "gen": "tsx scripts/typegen.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
-    "code-check": "pnpm run lint && pnpm run typecheck && pnpm run test --run",
-    "prepack": "pnpm run build",
+    "code-check": "pnpm lint && pnpm typecheck && pnpm test --run",
+    "prepack": "pnpm build",
     "release": "bumpp --commit \"Release v%s\""
   },
   "peerDependencies": {
