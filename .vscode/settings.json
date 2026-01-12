@@ -40,13 +40,5 @@
     "jsonc",
     "yaml",
     "toml"
-  ],
-
-  // Setting pair-diff patterns
-  "pair-diff.patterns": [
-    {
-      "source": "./fixtures/input/*.*",
-      "target": "<dir>/../output/all/<basename>"
-    }
   ]
 }
