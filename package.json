@@ -2,7 +2,7 @@
   "name": "@ycs77/eslint-config",
   "type": "module",
   "version": "7.0.0",
-  "packageManager": "pnpm@10.28.0",
+  "packageManager": "pnpm@10.28.1",
   "description": "Lucas Yang's ESLint config",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
   "license": "MIT",
