@@ -31,7 +31,7 @@
     "dev:watch": "tsdown --watch",
     "dev:inspector": "eslint-config-inspector --no-open",
     "build:inspector": "eslint-config-inspector build",
-    "lint": "eslint .",
+    "lint": "eslint . --concurrency auto",
     "gen": "tsx scripts/typegen.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
