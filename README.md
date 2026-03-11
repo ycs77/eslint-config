@@ -12,8 +12,8 @@
 - Designed to work with TypeScript, JSX, Vue, JSON, YAML, Toml, Markdown, etc. Out-of-box.
 - Opinionated, but [very customizable](#customization)
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
-- Optional [React](#react), [Svelte](#svelte), [UnoCSS](#unocss), [Astro](#astro), [Solid](#solid) support
-- Optional [formatters](#formatters) support for formatting CSS, HTML, XML, etc.
+- Optional [React](https://github.com/antfu/eslint-config#react), [Svelte](https://github.com/antfu/eslint-config#svelte), [UnoCSS](https://github.com/antfu/eslint-config#unocss), [Astro](https://github.com/antfu/eslint-config#astro), [Solid](https://github.com/antfu/eslint-config#solid) support
+- Optional [formatters](https://github.com/antfu/eslint-config#formatters) support for formatting CSS, HTML, XML, etc.
 - **Style principle**: Minimal for reading, stable for diff, consistent
   - Sorted imports, dangling commas
   - Single quotes, no semi
