@@ -5,6 +5,8 @@ export async function javascript(): Promise<TypedFlatConfigItem[]> {
     {
       name: 'ycs77/javascript/rules',
       rules: {
+        'e18e/prefer-static-regex': 'off',
+
         'unused-imports/no-unused-vars': [
           'error',
           {
