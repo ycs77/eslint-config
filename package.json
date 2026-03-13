@@ -41,7 +41,7 @@
   },
   "peerDependencies": {
     "eslint": "^9.10.0 || ^10.0.0",
-    "eslint-plugin-astro-explicit-wrapper": "^1.0.3"
+    "eslint-plugin-astro-explicit-wrapper": "^1.0.5"
   },
   "peerDependenciesMeta": {
     "eslint-plugin-astro-explicit-wrapper": {
@@ -51,19 +51,19 @@
   "dependencies": {
     "@antfu/eslint-config": "catalog:prod",
     "@typescript-eslint/parser": "catalog:prod",
+    "eslint-flat-config-utils": "catalog:prod",
     "eslint-plugin-antfu": "catalog:prod",
+    "eslint-plugin-vue": "catalog:prod",
     "local-pkg": "catalog:prod"
   },
   "devDependencies": {
     "@eslint/config-inspector": "catalog:dev",
     "@types/node": "catalog:dev",
     "bumpp": "catalog:dev",
-    "eslint": "catalog:dev",
-    "eslint-flat-config-utils": "catalog:dev",
+    "eslint": "catalog:peer",
     "eslint-plugin-astro": "catalog:dev",
-    "eslint-plugin-astro-explicit-wrapper": "catalog:dev",
+    "eslint-plugin-astro-explicit-wrapper": "catalog:peer",
     "eslint-plugin-format": "catalog:dev",
-    "eslint-plugin-vue": "catalog:dev",
     "eslint-plugin-vuejs-accessibility": "catalog:dev",
     "eslint-typegen": "catalog:dev",
     "execa": "catalog:dev",

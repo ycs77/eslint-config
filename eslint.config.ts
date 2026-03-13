@@ -1,4 +1,4 @@
-import ycs77, { GLOB_TS } from './dist/index.mjs'
+import ycs77, { GLOB_TS } from './src'
 
 export default ycs77({
   vue: {
