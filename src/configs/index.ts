@@ -1,4 +1,5 @@
 export * from './astro'
+export * from './e18e'
 export * from './imports'
 export * from './javascript'
 export * from './markdown'
