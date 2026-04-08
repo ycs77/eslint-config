@@ -1,14 +1,15 @@
 import type {
+  ConfigNames as AntfuConfigNames,
   OptionsConfig as AntfuOptionsConfig,
   Rules as AntfuRules,
   TypedFlatConfigItem as AntfuTypedFlatConfigItem,
   OptionsOverrides,
 } from '@antfu/eslint-config'
-import type { ConfigNames, RuleOptions } from './typegen'
+import type { ConfigNames as BaseConfigNames, RuleOptions } from './typegen'
 
 export type Rules = AntfuRules & RuleOptions
 
-export type { ConfigNames }
+export type ConfigNames = AntfuConfigNames | BaseConfigNames
 
 /**
  * An updated version of ESLint's `Linter.Config`, which provides autocompletion

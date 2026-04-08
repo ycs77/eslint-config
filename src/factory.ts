@@ -1,4 +1,4 @@
-import type { ConfigNames as AntfuConfigNames, Awaitable } from '@antfu/eslint-config'
+import type { Awaitable } from '@antfu/eslint-config'
 import type { Linter } from 'eslint'
 import type { FlatConfigComposer } from 'eslint-flat-config-utils'
 import type { ConfigNames, OptionsConfig, TypedFlatConfigItem } from './types'
@@ -27,7 +27,7 @@ const VuePackages = [
 export function ycs77(
   options: OptionsConfig & Omit<TypedFlatConfigItem, 'files' | 'ignores'> = {},
   ...userConfigs: Awaitable<TypedFlatConfigItem | TypedFlatConfigItem[] | FlatConfigComposer<any, any> | Linter.Config[]>[]
-): FlatConfigComposer<TypedFlatConfigItem, AntfuConfigNames | ConfigNames> {
+): FlatConfigComposer<TypedFlatConfigItem, ConfigNames> {
   const {
     astro: enableAstro = false,
     componentExts = [],
