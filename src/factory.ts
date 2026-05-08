@@ -6,7 +6,6 @@ import { antfu } from '@antfu/eslint-config'
 import { isPackageExists } from 'local-pkg'
 import {
   astro,
-  e18e,
   imports,
   javascript,
   markdown,
@@ -31,7 +30,6 @@ export function ycs77(
   const {
     astro: enableAstro = false,
     componentExts = [],
-    e18e: enableE18e = true,
     imports: enableImports = true,
     node: enableNode = true,
     stylistic: enableStylistic = true,
@@ -54,10 +52,6 @@ export function ycs77(
 
   if (enableImports) {
     composer = composer.append(imports())
-  }
-
-  if (enableE18e) {
-    composer = composer.append(e18e())
   }
 
   if (enableStylistic) {
