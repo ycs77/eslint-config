@@ -6,8 +6,8 @@ trustPolicy: no-downgrade
 
 catalogs:
   dev:
-    '@eslint/config-inspector': ^1.5.0
-    '@types/node': ^24.12.3
+    '@eslint/config-inspector': ^2.0.1
+    '@types/node': ^24.12.4
     bumpp: ^11.1.0
     chokidar: ^5.0.0
     eslint-plugin-astro: ^1.7.0
@@ -15,23 +15,24 @@ catalogs:
     eslint-plugin-vuejs-accessibility: ^2.5.0
     eslint-typegen: ^2.3.1
     execa: ^9.6.1
-    tinyglobby: ^0.2.16
-    tsdown: ^0.22.0
-    tsnapi: ^0.1.2
-    tsx: ^4.21.0
+    tinyglobby: ^0.2.17
+    tsdown: ^0.22.1
+    tsdown-stale-guard: ^0.1.2
+    tsnapi: ^0.3.3
+    tsx: ^4.22.4
     typescript: ^6.0.3
-    vitest: ^4.1.5
-    vue: ^3.5.34
+    vitest: ^4.1.8
+    vue: ^3.5.35
   peer:
     eslint: ^10.3.0
     eslint-plugin-astro-explicit-wrapper: ^1.0.5
   prod:
-    '@antfu/eslint-config': ~8.2.0
-    '@typescript-eslint/parser': ^8.58.1
+    '@antfu/eslint-config': ~8.3.0
+    '@typescript-eslint/parser': ^8.59.2
     eslint-flat-config-utils: ^3.2.0
-    eslint-plugin-antfu: ^3.2.2
+    eslint-plugin-antfu: ^3.2.3
     eslint-plugin-vue: ^10.9.1
-    local-pkg: ^1.1.2
+    local-pkg: ^1.2.1
 
 onlyBuiltDependencies:
   - esbuild

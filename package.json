@@ -69,6 +69,7 @@
     "execa": "catalog:dev",
     "tinyglobby": "catalog:dev",
     "tsdown": "catalog:dev",
+    "tsdown-stale-guard": "catalog:dev",
     "tsnapi": "catalog:dev",
     "tsx": "catalog:dev",
     "typescript": "catalog:dev",
