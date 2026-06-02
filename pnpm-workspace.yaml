@@ -27,7 +27,7 @@ catalogs:
     eslint: ^10.3.0
     eslint-plugin-astro-explicit-wrapper: ^1.0.5
   prod:
-    '@antfu/eslint-config': ~8.3.0
+    '@antfu/eslint-config': ~9.0.0
     '@typescript-eslint/parser': ^8.59.2
     eslint-flat-config-utils: ^3.2.0
     eslint-plugin-antfu: ^3.2.3
