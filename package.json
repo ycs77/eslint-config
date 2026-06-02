@@ -1,7 +1,7 @@
 {
   "name": "@ycs77/eslint-config",
   "type": "module",
-  "version": "8.1.0",
+  "version": "8.2.0",
   "packageManager": "pnpm@10.33.4",
   "description": "Lucas Yang's ESLint config",
   "author": "Lucas Yang <yangchenshin77@gmail.com>",
