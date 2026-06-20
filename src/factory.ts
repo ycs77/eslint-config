@@ -41,6 +41,8 @@ export function ycs77(
     ? {}
     : options.astro || {}
 
+  options.markdown = options.markdown ?? false
+
   let composer = antfu(options)
 
   composer = composer
@@ -92,7 +94,7 @@ export function ycs77(
     )
   }
 
-  if (options.markdown ?? true) {
+  if (options.markdown) {
     composer = composer.append(
       markdown({
         stylistic: enableStylistic,
