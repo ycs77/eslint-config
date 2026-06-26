@@ -9,7 +9,6 @@ catalogs:
     '@eslint/config-inspector': ^2.0.1
     '@types/node': ^24.12.4
     bumpp: ^11.1.0
-    chokidar: ^5.0.0
     eslint-plugin-astro: ^1.7.0
     eslint-plugin-format: ^2.0.1
     eslint-plugin-vuejs-accessibility: ^2.5.0
@@ -34,5 +33,5 @@ catalogs:
     eslint-plugin-vue: ^10.9.1
     local-pkg: ^1.2.1
 
-onlyBuiltDependencies:
-  - esbuild
+allowBuilds:
+  esbuild: true
