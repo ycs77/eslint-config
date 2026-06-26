@@ -30,7 +30,7 @@
     "stub": "tsdown",
     "dev:watch": "tsdown --watch",
     "dev:inspector": "eslint-config-inspector --no-open",
-    "build:inspector": "eslint-config-inspector build",
+    "build:inspector": "eslint-config-inspector build --config eslint.config.ts --out-dir ./.eslint-config-inspector",
     "lint": "eslint . --concurrency auto",
     "gen": "tsx scripts/typegen.ts",
     "typecheck": "tsc --noEmit",
