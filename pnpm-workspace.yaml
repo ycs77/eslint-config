@@ -16,6 +16,7 @@ overrides:
   '@typescript-eslint/typescript-estree': 8.62.0
   '@typescript-eslint/utils': 8.62.0
   '@typescript-eslint/visitor-keys': 8.62.0
+  eslint-plugin-astro: 2.1.1
 
 catalogs:
   dev:
