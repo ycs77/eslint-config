@@ -24,6 +24,20 @@ declare function _default(_?: OptionsConfig$1 & Omit<TypedFlatConfigItem$1, 'fil
 export default _default
 // #endregion
 
+// #region Referenced (internal)
+type ConfigNames$1 = ConfigNames | ConfigNames$2;
+interface OptionsAstro extends OptionsOverrides {
+  astroExplicitWrapper?: boolean;
+}
+interface OptionsConfig$1 extends OptionsConfig {
+  astro?: boolean | OptionsAstro;
+  markdown?: boolean | OptionsMarkdown;
+}
+type TypedFlatConfigItem$1 = Omit<TypedFlatConfigItem, 'rules'> & {
+  rules?: Rules$1;
+};
+// #endregion
+
 // #region Other
 export { GLOB_ALL_SRC }
 export { GLOB_ASTRO }
