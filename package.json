@@ -36,8 +36,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "check": "pnpm lint && pnpm typecheck && pnpm test --run",
-    "prepack": "pnpm build",
-    "release": "bumpp --commit \"Release v%s\""
+    "update-actions": "actionspack update",
+    "release": "bumpp --commit \"Release v%s\"",
+    "prepack": "pnpm build"
   },
   "peerDependencies": {
     "eslint": "^9.10.0 || ^10.0.0",
@@ -59,6 +60,7 @@
   "devDependencies": {
     "@eslint/config-inspector": "catalog:dev",
     "@types/node": "catalog:dev",
+    "actionspack": "catalog:dev",
     "bumpp": "catalog:dev",
     "eslint": "catalog:peer",
     "eslint-plugin-astro": "catalog:dev",

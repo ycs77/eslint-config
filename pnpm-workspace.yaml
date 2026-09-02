@@ -25,6 +25,7 @@ catalogs:
   dev:
     '@eslint/config-inspector': ^3.3.0
     '@types/node': ^26.4.0
+    actionspack: ^0.1.5
     bumpp: ^12.2.2
     eslint-plugin-astro: ^2.1.1
     eslint-plugin-erasable-syntax-only: ^0.4.2
