@@ -1,4 +1,8 @@
 {
+  "files.readonlyInclude": {
+    ".github/workflows/*.yml": true
+  },
+
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
   "editor.formatOnSave": false,
