@@ -16,7 +16,9 @@ export async function astro(
 
   const stylisticConfig = {
     ...StylisticConfigDefaults,
-    ...(typeof options.stylistic === 'object' ? options.stylistic : {}),
+    ...(typeof options.stylistic === 'object'
+      ? options.stylistic
+      : {}),
   }
 
   const [
@@ -48,10 +50,14 @@ export async function astro(
       offsetTernaryExpressions: true,
       outerIIFEBody: 1,
       SwitchCase: 1,
-      tabLength: indentLevel === 'tab' ? 4 : indentLevel,
+      tabLength: indentLevel === 'tab'
+        ? 4
+        : indentLevel,
       VariableDeclarator: 1,
     } satisfies RuleOptions['@stylistic/indent'][1],
-  ] = Array.isArray(stylisticConfig.indent) ? stylisticConfig.indent : [stylisticConfig.indent]
+  ] = Array.isArray(stylisticConfig.indent)
+    ? stylisticConfig.indent
+    : [stylisticConfig.indent]
 
   return [
     {
@@ -83,7 +89,10 @@ export async function astro(
               // because it disabled by @antfu/eslint-config for .astro files
               'style/indent': ['error', indentLevel, indentOptions],
               'style/semi': 'off',
-              'style/no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
+              'style/no-multiple-empty-lines': [
+                'error',
+                { max: 1, maxBOF: 0, maxEOF: 0 },
+              ],
             }
           : {},
 
