@@ -1,8 +1,8 @@
 import type { OptionsFiles, OptionsHasTypeScript, OptionsStylistic } from '@antfu/eslint-config'
 import type { TypedFlatConfigItem } from '../types'
-// @ts-ignore
-import INLINE_ELEMENTS from 'eslint-plugin-vue/dist/utils/inline-non-void-elements.js'
 import { GLOB_VUE } from '../globs'
+// Reference: https://github.com/vuejs/eslint-plugin-vue/blob/d33df42f99a0d2d04421ca9618817a6f5d56ff55/lib/utils/inline-non-void-elements.json
+import INLINE_ELEMENTS from '../utils/vue-inline-elements.json' with { type: 'json' }
 
 export async function vue(
   options: OptionsHasTypeScript & OptionsStylistic & OptionsFiles = {}
@@ -31,7 +31,7 @@ export async function vue(
         }],
         'vue/no-template-shadow': 'off',
         'vue/singleline-html-element-content-newline': ['error', {
-          ignores: ['pre', 'textarea', 'template', ...INLINE_ELEMENTS.default],
+          ignores: ['pre', 'textarea', 'template', ...INLINE_ELEMENTS],
         }],
 
         ...stylistic

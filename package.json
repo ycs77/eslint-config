@@ -54,7 +54,6 @@
     "@typescript-eslint/parser": "catalog:prod",
     "eslint-flat-config-utils": "catalog:prod",
     "eslint-plugin-antfu": "catalog:prod",
-    "eslint-plugin-vue": "catalog:prod",
     "local-pkg": "catalog:prod"
   },
   "devDependencies": {
@@ -67,6 +66,7 @@
     "eslint-plugin-astro-explicit-wrapper": "catalog:peer",
     "eslint-plugin-erasable-syntax-only": "catalog:dev",
     "eslint-plugin-format": "catalog:dev",
+    "eslint-plugin-vue": "catalog:dev",
     "eslint-plugin-vuejs-accessibility": "catalog:dev",
     "eslint-typegen": "catalog:dev",
     "tinyexec": "catalog:dev",
